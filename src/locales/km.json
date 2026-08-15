@@ -1,0 +1,140 @@
+{
+  "app": {
+    "name": "HeatSafe Student",
+    "tagline": "Melbourne heat support",
+    "skip": "Skip to main content",
+    "demoGuidance": "Demo guidance only. Weather information is not real-time."
+  },
+  "nav": {
+    "dashboard": "ផ្ទាំងគ្រប់គ្រង",
+    "heatRisk": "ហានិភ័យកម្ដៅ",
+    "coolPlaces": "ទីតាំងត្រជាក់",
+    "travelPlanner": "ផែនការធ្វើដំណើរ",
+    "safetyPlan": "ផែនការសុវត្ថិភាព",
+    "learn": "ស្វែងយល់",
+    "emergencyHelp": "ជំនួយបន្ទាន់"
+  },
+  "actions": {
+    "save": "រក្សាទុក",
+    "saved": "បានរក្សាទុក",
+    "retry": "ព្យាយាមម្ដងទៀត",
+    "refresh": "Refresh",
+    "cancel": "បោះបង់",
+    "clearFilters": "សម្អាតតម្រង",
+    "useMyLocation": "ប្រើទីតាំងខ្ញុំ",
+    "checking": "កំពុងពិនិត្យ...",
+    "getDirections": "ទិសដៅ",
+    "previewDirections": "មើលទិសដៅ",
+    "viewInList": "មើលក្នុងបញ្ជី",
+    "changeLanguage": "ប្ដូរភាសា"
+  },
+  "header": {
+    "emergencyAustralia": "អាសន្ននៅអូស្ត្រាលី",
+    "tripleZero": "ហៅលេខ 000 ប្រសិនបើនរណាម្នាក់អាចឈឺធ្ងន់។",
+    "getHelp": "ទទួលជំនួយ",
+    "openMenu": "បើកម៉ឺនុយ",
+    "closeMenu": "បិទម៉ឺនុយ",
+    "emergencyHelp": "ជំនួយបន្ទាន់"
+  },
+  "temperature": {
+    "label": "Temperature unit",
+    "celsius": "°C",
+    "fahrenheit": "°F"
+  },
+  "heatRisk": {
+    "title": "ហានិភ័យកម្ដៅ",
+    "intro": "ព្យាករណ៍ក្នុងតំបន់ផ្ទាល់ និងដំបូន្មានកម្ដៅផ្ទាល់ខ្លួន។",
+    "source": "ទិន្នន័យពី Open-Meteo។ ដំបូន្មាននេះមិនមែនជាព្រមានផ្លូវការទេ។",
+    "unavailableTitle": "មិនអាចធ្វើបច្ចុប្បន្នភាពអាកាសធាតុបានទេ។",
+    "unavailableBody": "សូមព្យាយាមម្ដងទៀតបន្តិចទៀត។",
+    "cached": "កំពុងបង្ហាញទិន្នន័យអាកាសធាតុដែលបានទាញយកពីមុន។",
+    "lastUpdated": "Last updated {{time}}.",
+    "checking": "កំពុងពិនិត្យអាកាសធាតុ Melbourne...",
+    "hourly": "សីតុណ្ហភាពរៀងរាល់ម៉ោង",
+    "feelsPeak": "អារម្មណ៍កម្ដៅឡើងដល់ {{temp}}",
+    "chartSummary": "The chart compares forecast air temperature with apparent temperature from morning to evening. The highest apparent temperature is {{temp}}.",
+    "legendTemp": "Orange: Temperature",
+    "legendFeels": "Brown: Feels like",
+    "warmestWindow": "ពេលក្តៅបំផុត",
+    "maxUv": "Maximum UV",
+    "averageHumidity": "Average humidity",
+    "comfortableTimes": "More comfortable outdoor times:",
+    "similarEvening": "Temperatures may remain similar this evening. Carry water and consider a cool indoor rest location.",
+    "basedOnFeels": "Warmest periods are based on live apparent temperature.",
+    "today": "ថ្ងៃនេះ",
+    "tomorrow": "ថ្ងៃស្អែក",
+    "low": "ទាប {{temp}}",
+    "hottestExpected": "Hottest expected: {{time}}",
+    "scale": "កម្រិតហានិភ័យកម្ដៅ",
+    "current": "បច្ចុប្បន្ន",
+    "personalCircumstances": "Personal circumstances",
+    "selectCircumstances": "Select one or more circumstances to see personalised safety suggestions.",
+    "viewCoolingPlaces": "មើលទីតាំងត្រជាក់ជិតខាង",
+    "status": {
+      "comfortable": "ស្រួល",
+      "warm": "ក្តៅល្មម",
+      "hot": "ក្តៅ",
+      "very-hot": "ក្តៅខ្លាំង"
+    },
+    "badge": {
+      "comfortable": "ស្ថានភាពស្រួល",
+      "warm": "ថ្ងៃនេះក្តៅល្មម",
+      "hot": "ថ្ងៃនេះក្តៅ",
+      "very-hot": "ថ្ងៃនេះក្តៅខ្លាំង"
+    },
+    "message": {
+      "comfortable": "ស្ថានភាពបច្ចុប្បន្នស្រួល។ ការថែទាំធម្មតាគ្រប់គ្រាន់។",
+      "warm": "ថ្ងៃនេះក្តៅល្មម។ រៀបចំទឹក ស្រមោល និងពេលធ្វើដំណើរស្រួល។",
+      "hot": "រំពឹងថាក្តៅ។ ជៀសវាងនៅក្រៅយូរពេលក្តៅបំផុត។",
+      "very-hot": "រំពឹងថាក្តៅខ្លាំង។ ប្ដូរផែនការខាងក្រៅបើអាច។"
+    },
+    "advice": {
+      "comfortable": "រក្សាទឹកជិតខ្លួន និងប្រយ័ត្នធម្មតា។",
+      "warm": "យកទឹក ប្រើឡេការពារកម្ដៅថ្ងៃ និងស្លៀកសម្លៀកបំពាក់ស្រាល។",
+      "hot": "ធ្វើដំណើរខាងក្រៅឱ្យខ្លី និងរកកន្លែងសម្រាកត្រជាក់។",
+      "very-hot": "រៀបចំទឹក កន្លែងត្រជាក់ និងផែនការធ្វើដំណើរ។"
+    }
+  },
+  "coolPlaces": {
+    "badge": "ជម្រើសត្រជាក់ជិតខាង",
+    "title": "ទីតាំងត្រជាក់",
+    "description": "រកកន្លែងមានម៉ាស៊ីនត្រជាក់ ទឹក និងងាយទៅដល់ការដឹកជញ្ជូន។",
+    "map": "ផែនទី",
+    "list": "បញ្ជី",
+    "filtersLabel": "Cooling place filters",
+    "results": "លទ្ធផល {{count}}",
+    "prototypeMap": "ផែនទីគំរូ Melbourne",
+    "distanceNote": "ចម្ងាយដើរគឺប៉ាន់ស្មាន",
+    "disclaimer": "ទីតាំងត្រជាក់ក្នុងគំរូនេះជាទីតាំងសាកល្បង និងមិនបានផ្ទៀងផ្ទាត់ដោយឯករាជ្យទេ។",
+    "emptyTitle": "មិនមានទីតាំងត្រជាក់សាកល្បងត្រូវនឹងតម្រងទេ។",
+    "emptyBody": "សាកល្បងដកតម្រងមួយ។",
+    "openNow": "កំពុងបើក",
+    "closed": "បិទ",
+    "demo": "សាកល្បង",
+    "demoLocation": "ទីតាំងសាកល្បង",
+    "hours": "ម៉ោង៖ {{hours}}",
+    "directionsTitle": "មើលទិសដៅ?",
+    "directionsBody": "This is a demonstration location used for the prototype. Would you like to preview directions to its map coordinates?",
+    "savedToast": "បានរក្សាទុកទីតាំងត្រជាក់។",
+    "locationDenied": "មិនបានបើកការអនុញ្ញាតទីតាំង។ ផែនទីបង្ហាញកណ្ដាល Melbourne។",
+    "yourLocation": "ទីតាំងប្រហែលរបស់អ្នក",
+    "selectPlace": "Select {{name}}",
+    "facilities": {
+      "airConditioning": "ម៉ាស៊ីនត្រជាក់",
+      "water": "ទឹក",
+      "drinkingWater": "ទឹកផឹក",
+      "accessible": "ងាយចូលដំណើរការ",
+      "transport": "ដឹកជញ្ជូន",
+      "nearTransport": "ជិតដឹកជញ្ជូន",
+      "freeEntry": "ចូលឥតគិតថ្លៃ"
+    },
+    "filters": {
+      "openNow": "កំពុងបើក",
+      "freeEntry": "ចូលដោយឥតគិតថ្លៃ",
+      "drinkingWater": "ទឹកផឹក",
+      "accessible": "ងាយចូលដំណើរការ",
+      "nearTransport": "ជិតសាធារណៈដឹកជញ្ជូន",
+      "saved": "បានរក្សាទុក"
+    }
+  }
+}

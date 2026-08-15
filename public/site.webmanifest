@@ -1,0 +1,21 @@
+{
+  "name": "HeatSafe Student",
+  "short_name": "HeatSafe",
+  "description": "Heat-safety support for international students in Australia.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFF9F3",
+  "theme_color": "#F47B20",
+  "icons": [
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

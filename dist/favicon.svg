@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="HeatSafe Student">
+  <rect width="64" height="64" rx="16" fill="#FFF9F3"/>
+  <circle cx="30" cy="29" r="17" fill="#F47B20"/>
+  <path d="M30 6v8M30 44v8M7 29h8M45 29h8M14 13l6 6M40 39l6 6M46 13l-6 6M20 39l-6 6" stroke="#F47B20" stroke-width="4" stroke-linecap="round"/>
+  <path d="M28 41c12-1 22-9 25-22-13 1-22 8-25 22Z" fill="#65A765" stroke="#4B3428" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M23 30c-5-7 5-15 10-7 5-8 15 0 10 7-3 5-10 10-10 10s-7-5-10-10Z" fill="#FFF9F3" stroke="#4B3428" stroke-width="3" stroke-linejoin="round"/>
+</svg>

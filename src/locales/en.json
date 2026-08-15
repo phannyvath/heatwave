@@ -1,0 +1,140 @@
+{
+  "app": {
+    "name": "HeatSafe Student",
+    "tagline": "Melbourne heat support",
+    "skip": "Skip to main content",
+    "demoGuidance": "Demo guidance only. Weather information is not real-time."
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "heatRisk": "Heat Risk",
+    "coolPlaces": "Cool Places",
+    "travelPlanner": "Travel Planner",
+    "safetyPlan": "Safety Plan",
+    "learn": "Learn",
+    "emergencyHelp": "Emergency Help"
+  },
+  "actions": {
+    "save": "Save",
+    "saved": "Saved",
+    "retry": "Retry",
+    "refresh": "Refresh",
+    "cancel": "Cancel",
+    "clearFilters": "Clear filters",
+    "useMyLocation": "Use my location",
+    "checking": "Checking...",
+    "getDirections": "Get directions",
+    "previewDirections": "Preview directions",
+    "viewInList": "View in list",
+    "changeLanguage": "Change language"
+  },
+  "header": {
+    "emergencyAustralia": "Emergency in Australia",
+    "tripleZero": "Call Triple Zero (000) if someone may be seriously unwell.",
+    "getHelp": "Get help",
+    "openMenu": "Open navigation menu",
+    "closeMenu": "Close navigation menu",
+    "emergencyHelp": "Emergency help"
+  },
+  "temperature": {
+    "label": "Temperature unit",
+    "celsius": "°C",
+    "fahrenheit": "°F"
+  },
+  "heatRisk": {
+    "title": "Heat Risk",
+    "intro": "Live local forecast and personalised heat guidance.",
+    "source": "Forecast data provided by Open-Meteo. Heat guidance is not an official warning.",
+    "unavailableTitle": "We couldn’t update the weather right now.",
+    "unavailableBody": "Please try again shortly.",
+    "cached": "Showing previously downloaded weather data.",
+    "lastUpdated": "Last updated {{time}}.",
+    "checking": "Checking Melbourne’s weather...",
+    "hourly": "Hourly temperature",
+    "feelsPeak": "Feels like peaks at {{temp}}",
+    "chartSummary": "The chart compares forecast air temperature with apparent temperature from morning to evening. The highest apparent temperature is {{temp}}.",
+    "legendTemp": "Orange: Temperature",
+    "legendFeels": "Brown: Feels like",
+    "warmestWindow": "Warmest window",
+    "maxUv": "Maximum UV",
+    "averageHumidity": "Average humidity",
+    "comfortableTimes": "More comfortable outdoor times:",
+    "similarEvening": "Temperatures may remain similar this evening. Carry water and consider a cool indoor rest location.",
+    "basedOnFeels": "Warmest periods are based on live apparent temperature.",
+    "today": "Today",
+    "tomorrow": "Tomorrow",
+    "low": "Low {{temp}}",
+    "hottestExpected": "Hottest expected: {{time}}",
+    "scale": "Heat-risk scale",
+    "current": "Current",
+    "personalCircumstances": "Personal circumstances",
+    "selectCircumstances": "Select one or more circumstances to see personalised safety suggestions.",
+    "viewCoolingPlaces": "View nearby cooling places",
+    "status": {
+      "comfortable": "Comfortable",
+      "warm": "Warm",
+      "hot": "Hot",
+      "very-hot": "Very hot"
+    },
+    "badge": {
+      "comfortable": "Comfortable conditions",
+      "warm": "Warm conditions today",
+      "hot": "Hot conditions today",
+      "very-hot": "Very hot conditions today"
+    },
+    "message": {
+      "comfortable": "Conditions are currently comfortable. Normal care is usually enough.",
+      "warm": "Warm conditions today. Plan water, shade and comfortable travel times.",
+      "hot": "Hot conditions are expected. Avoid long outdoor periods during the warmest hours.",
+      "very-hot": "Very hot conditions are expected. Change outdoor plans where possible and prepare a cooler place."
+    },
+    "advice": {
+      "comfortable": "Keep water nearby and enjoy your day with normal care.",
+      "warm": "Carry water, use sunscreen, wear light clothing and choose shade when you can.",
+      "hot": "Consider shorter outdoor trips, cooler rest stops and a later travel time.",
+      "very-hot": "Prepare water, cooling options, transport plans and check in with friends."
+    }
+  },
+  "coolPlaces": {
+    "badge": "Cooling options nearby",
+    "title": "Cool Places",
+    "description": "Find air-conditioned spaces, water access, and transport-friendly demo stops.",
+    "map": "Map",
+    "list": "List",
+    "filtersLabel": "Cooling place filters",
+    "results": "{{count}} results",
+    "prototypeMap": "Melbourne prototype map",
+    "distanceNote": "Approximate walking distances only",
+    "disclaimer": "Cooling places shown in this prototype are demonstration locations and have not been independently verified.",
+    "emptyTitle": "No demo cooling places match these filters.",
+    "emptyBody": "Try removing one of the filters.",
+    "openNow": "Open now",
+    "closed": "Closed",
+    "demo": "Demo",
+    "demoLocation": "Demo location",
+    "hours": "Hours: {{hours}}",
+    "directionsTitle": "Preview directions?",
+    "directionsBody": "This is a demonstration location used for the prototype. Would you like to preview directions to its map coordinates?",
+    "savedToast": "Cooling place saved.",
+    "locationDenied": "Location access was not enabled. The map is showing central Melbourne.",
+    "yourLocation": "Your approximate location",
+    "selectPlace": "Select {{name}}",
+    "facilities": {
+      "airConditioning": "Air conditioning",
+      "water": "Water",
+      "drinkingWater": "Drinking water",
+      "accessible": "Accessible",
+      "transport": "Transport",
+      "nearTransport": "Near public transport",
+      "freeEntry": "Free entry"
+    },
+    "filters": {
+      "openNow": "Open now",
+      "freeEntry": "Free entry",
+      "drinkingWater": "Drinking water",
+      "accessible": "Accessible",
+      "nearTransport": "Near public transport",
+      "saved": "Saved"
+    }
+  }
+}

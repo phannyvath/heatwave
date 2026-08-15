@@ -1,0 +1,140 @@
+{
+  "app": {
+    "name": "HeatSafe Student",
+    "tagline": "墨尔本高温支持",
+    "skip": "跳到主要内容",
+    "demoGuidance": "仅供演示参考。天气信息并非实时。"
+  },
+  "nav": {
+    "dashboard": "仪表板",
+    "heatRisk": "高温风险",
+    "coolPlaces": "清凉地点",
+    "travelPlanner": "出行计划",
+    "safetyPlan": "安全计划",
+    "learn": "学习",
+    "emergencyHelp": "紧急帮助"
+  },
+  "actions": {
+    "save": "保存",
+    "saved": "已保存",
+    "retry": "重试",
+    "refresh": "刷新",
+    "cancel": "取消",
+    "clearFilters": "清除筛选",
+    "useMyLocation": "使用我的位置",
+    "checking": "正在检查...",
+    "getDirections": "获取路线",
+    "previewDirections": "预览路线",
+    "viewInList": "在列表中查看",
+    "changeLanguage": "更改语言"
+  },
+  "header": {
+    "emergencyAustralia": "澳大利亚紧急情况",
+    "tripleZero": "如果有人可能严重不适，请拨打 000。",
+    "getHelp": "获取帮助",
+    "openMenu": "打开导航菜单",
+    "closeMenu": "关闭导航菜单",
+    "emergencyHelp": "紧急帮助"
+  },
+  "temperature": {
+    "label": "Temperature unit",
+    "celsius": "°C",
+    "fahrenheit": "°F"
+  },
+  "heatRisk": {
+    "title": "高温风险",
+    "intro": "实时本地预报和个性化高温建议。",
+    "source": "预报数据由 Open-Meteo 提供。高温建议不是官方警报。",
+    "unavailableTitle": "现在无法更新天气。",
+    "unavailableBody": "请稍后再试。",
+    "cached": "显示之前下载的天气数据。",
+    "lastUpdated": "上次更新 {{time}}。",
+    "checking": "正在检查墨尔本天气...",
+    "hourly": "每小时温度",
+    "feelsPeak": "体感温度最高为 {{temp}}",
+    "chartSummary": "The chart compares forecast air temperature with apparent temperature from morning to evening. The highest apparent temperature is {{temp}}.",
+    "legendTemp": "橙色：温度",
+    "legendFeels": "棕色：体感温度",
+    "warmestWindow": "最热时段",
+    "maxUv": "最高紫外线",
+    "averageHumidity": "平均湿度",
+    "comfortableTimes": "更舒适的户外时间：",
+    "similarEvening": "今晚温度可能相近。请携带水，并考虑室内清凉休息点。",
+    "basedOnFeels": "最热时段基于实时体感温度。",
+    "today": "今天",
+    "tomorrow": "明天",
+    "low": "最低 {{temp}}",
+    "hottestExpected": "预计最热：{{time}}",
+    "scale": "高温风险等级",
+    "current": "当前",
+    "personalCircumstances": "个人情况",
+    "selectCircumstances": "选择一个或多个情况以查看个性化安全建议。",
+    "viewCoolingPlaces": "查看附近清凉地点",
+    "status": {
+      "comfortable": "舒适",
+      "warm": "温暖",
+      "hot": "炎热",
+      "very-hot": "非常热"
+    },
+    "badge": {
+      "comfortable": "舒适天气",
+      "warm": "今天较热",
+      "hot": "今天炎热",
+      "very-hot": "今天非常热"
+    },
+    "message": {
+      "comfortable": "目前天气舒适。通常注意即可。",
+      "warm": "今天较热。请准备水、阴凉处和舒适出行时间。",
+      "hot": "预计天气炎热。请避免在最热时段长时间户外活动。",
+      "very-hot": "预计天气非常热。尽可能改变户外计划并准备清凉地点。"
+    },
+    "advice": {
+      "comfortable": "把水放在身边，正常注意即可。",
+      "warm": "携带水，使用防晒，穿轻便衣物，并尽量选择阴凉处。",
+      "hot": "考虑缩短户外行程，安排清凉休息点和较晚出行时间。",
+      "very-hot": "准备水、清凉选择、交通计划，并关心朋友。"
+    }
+  },
+  "coolPlaces": {
+    "badge": "附近清凉选择",
+    "title": "清凉地点",
+    "description": "查找有空调、饮水和交通便利的演示地点。",
+    "map": "地图",
+    "list": "列表",
+    "filtersLabel": "Cooling place filters",
+    "results": "{{count}} 个结果",
+    "prototypeMap": "墨尔本原型地图",
+    "distanceNote": "步行距离仅为估算",
+    "disclaimer": "本原型中的清凉地点为演示地点，未经过独立验证。",
+    "emptyTitle": "没有符合这些筛选条件的演示清凉地点。",
+    "emptyBody": "请尝试移除一个筛选条件。",
+    "openNow": "现在开放",
+    "closed": "已关闭",
+    "demo": "演示",
+    "demoLocation": "演示地点",
+    "hours": "时间：{{hours}}",
+    "directionsTitle": "预览路线？",
+    "directionsBody": "这是原型使用的演示地点。是否预览到其地图坐标的路线？",
+    "savedToast": "清凉地点已保存。",
+    "locationDenied": "未启用位置访问。地图显示墨尔本市中心。",
+    "yourLocation": "你的大致位置",
+    "selectPlace": "Select {{name}}",
+    "facilities": {
+      "airConditioning": "空调",
+      "water": "水",
+      "drinkingWater": "饮用水",
+      "accessible": "无障碍",
+      "transport": "交通",
+      "nearTransport": "靠近公共交通",
+      "freeEntry": "免费进入"
+    },
+    "filters": {
+      "openNow": "现在开放",
+      "freeEntry": "免费进入",
+      "drinkingWater": "饮用水",
+      "accessible": "无障碍",
+      "nearTransport": "靠近公共交通",
+      "saved": "已保存"
+    }
+  }
+}

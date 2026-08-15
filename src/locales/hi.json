@@ -1,0 +1,140 @@
+{
+  "app": {
+    "name": "HeatSafe Student",
+    "tagline": "Melbourne heat support",
+    "skip": "Skip to main content",
+    "demoGuidance": "Demo guidance only. Weather information is not real-time."
+  },
+  "nav": {
+    "dashboard": "डैशबोर्ड",
+    "heatRisk": "गर्मी जोखिम",
+    "coolPlaces": "ठंडी जगहें",
+    "travelPlanner": "यात्रा योजना",
+    "safetyPlan": "सुरक्षा योजना",
+    "learn": "सीखें",
+    "emergencyHelp": "आपात मदद"
+  },
+  "actions": {
+    "save": "सहेजें",
+    "saved": "सहेजा गया",
+    "retry": "फिर कोशिश करें",
+    "refresh": "Refresh",
+    "cancel": "रद्द करें",
+    "clearFilters": "फ़िल्टर हटाएँ",
+    "useMyLocation": "मेरा स्थान उपयोग करें",
+    "checking": "जाँच हो रही है...",
+    "getDirections": "दिशा-निर्देश",
+    "previewDirections": "दिशा-निर्देश देखें",
+    "viewInList": "सूची में देखें",
+    "changeLanguage": "भाषा बदलें"
+  },
+  "header": {
+    "emergencyAustralia": "ऑस्ट्रेलिया में आपात स्थिति",
+    "tripleZero": "यदि कोई गंभीर रूप से अस्वस्थ हो सकता है तो Triple Zero (000) पर कॉल करें।",
+    "getHelp": "मदद लें",
+    "openMenu": "नेविगेशन मेनू खोलें",
+    "closeMenu": "नेविगेशन मेनू बंद करें",
+    "emergencyHelp": "आपात मदद"
+  },
+  "temperature": {
+    "label": "Temperature unit",
+    "celsius": "°C",
+    "fahrenheit": "°F"
+  },
+  "heatRisk": {
+    "title": "गर्मी जोखिम",
+    "intro": "लाइव स्थानीय पूर्वानुमान और व्यक्तिगत गर्मी सलाह।",
+    "source": "पूर्वानुमान डेटा Open-Meteo से है। गर्मी सलाह आधिकारिक चेतावनी नहीं है।",
+    "unavailableTitle": "हम अभी मौसम अपडेट नहीं कर सके।",
+    "unavailableBody": "कृपया थोड़ी देर बाद फिर कोशिश करें।",
+    "cached": "पहले डाउनलोड किया गया मौसम डेटा दिखाया जा रहा है।",
+    "lastUpdated": "Last updated {{time}}.",
+    "checking": "मेलबर्न का मौसम जाँचा जा रहा है...",
+    "hourly": "घंटेवार तापमान",
+    "feelsPeak": "महसूस तापमान {{temp}} तक पहुँचेगा",
+    "chartSummary": "The chart compares forecast air temperature with apparent temperature from morning to evening. The highest apparent temperature is {{temp}}.",
+    "legendTemp": "Orange: Temperature",
+    "legendFeels": "Brown: Feels like",
+    "warmestWindow": "सबसे गर्म समय",
+    "maxUv": "Maximum UV",
+    "averageHumidity": "Average humidity",
+    "comfortableTimes": "More comfortable outdoor times:",
+    "similarEvening": "Temperatures may remain similar this evening. Carry water and consider a cool indoor rest location.",
+    "basedOnFeels": "Warmest periods are based on live apparent temperature.",
+    "today": "आज",
+    "tomorrow": "कल",
+    "low": "न्यूनतम {{temp}}",
+    "hottestExpected": "Hottest expected: {{time}}",
+    "scale": "गर्मी जोखिम स्तर",
+    "current": "वर्तमान",
+    "personalCircumstances": "Personal circumstances",
+    "selectCircumstances": "Select one or more circumstances to see personalised safety suggestions.",
+    "viewCoolingPlaces": "पास की ठंडी जगहें देखें",
+    "status": {
+      "comfortable": "आरामदायक",
+      "warm": "गर्म",
+      "hot": "बहुत गर्म",
+      "very-hot": "अत्यधिक गर्म"
+    },
+    "badge": {
+      "comfortable": "आरामदायक स्थिति",
+      "warm": "आज गर्म स्थिति",
+      "hot": "आज बहुत गर्म",
+      "very-hot": "आज अत्यधिक गर्म"
+    },
+    "message": {
+      "comfortable": "स्थिति अभी आरामदायक है। सामान्य सावधानी काफी है।",
+      "warm": "आज गर्म स्थिति है। पानी, छाया और आरामदायक यात्रा समय की योजना बनाएँ।",
+      "hot": "बहुत गर्म स्थिति अपेक्षित है। सबसे गर्म समय में लंबे समय तक बाहर रहने से बचें।",
+      "very-hot": "अत्यधिक गर्म स्थिति अपेक्षित है। जहाँ संभव हो बाहरी योजनाएँ बदलें।"
+    },
+    "advice": {
+      "comfortable": "पानी पास रखें और सामान्य सावधानी रखें।",
+      "warm": "पानी साथ रखें, सनस्क्रीन लगाएँ और हल्के कपड़े पहनें।",
+      "hot": "छोटी बाहरी यात्राएँ और ठंडे विश्राम स्थान चुनें।",
+      "very-hot": "पानी, ठंडी जगह और यात्रा योजना तैयार रखें।"
+    }
+  },
+  "coolPlaces": {
+    "badge": "पास के ठंडे विकल्प",
+    "title": "ठंडी जगहें",
+    "description": "एयर-कंडीशनिंग, पानी और परिवहन के पास डेमो स्थान खोजें।",
+    "map": "मानचित्र",
+    "list": "सूची",
+    "filtersLabel": "Cooling place filters",
+    "results": "{{count}} परिणाम",
+    "prototypeMap": "मेलबर्न प्रोटोटाइप मानचित्र",
+    "distanceNote": "चलने की दूरी अनुमानित है",
+    "disclaimer": "इस प्रोटोटाइप में दिखाए गए स्थान डेमो हैं और स्वतंत्र रूप से सत्यापित नहीं हैं।",
+    "emptyTitle": "इन फ़िल्टर से कोई डेमो ठंडी जगह नहीं मिली।",
+    "emptyBody": "एक फ़िल्टर हटाकर देखें।",
+    "openNow": "अभी खुला",
+    "closed": "बंद",
+    "demo": "डेमो",
+    "demoLocation": "डेमो स्थान",
+    "hours": "समय: {{hours}}",
+    "directionsTitle": "दिशा-निर्देश देखें?",
+    "directionsBody": "This is a demonstration location used for the prototype. Would you like to preview directions to its map coordinates?",
+    "savedToast": "ठंडी जगह सहेजी गई।",
+    "locationDenied": "स्थान अनुमति सक्षम नहीं हुई। मानचित्र केंद्रीय मेलबर्न दिखा रहा है।",
+    "yourLocation": "आपका अनुमानित स्थान",
+    "selectPlace": "Select {{name}}",
+    "facilities": {
+      "airConditioning": "एयर कंडीशनिंग",
+      "water": "पानी",
+      "drinkingWater": "पीने का पानी",
+      "accessible": "सुलभ",
+      "transport": "परिवहन",
+      "nearTransport": "परिवहन के पास",
+      "freeEntry": "मुफ़्त प्रवेश"
+    },
+    "filters": {
+      "openNow": "अभी खुला",
+      "freeEntry": "मुफ़्त प्रवेश",
+      "drinkingWater": "पीने का पानी",
+      "accessible": "सुलभ",
+      "nearTransport": "सार्वजनिक परिवहन के पास",
+      "saved": "सहेजा गया"
+    }
+  }
+}
