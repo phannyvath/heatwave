@@ -93,7 +93,11 @@
       "warm": "携带水，使用防晒，穿轻便衣物，并尽量选择阴凉处。",
       "hot": "考虑缩短户外行程，安排清凉休息点和较晚出行时间。",
       "very-hot": "准备水、清凉选择、交通计划，并关心朋友。"
-    }
+    },
+    "before": "{{time}} 前",
+    "after": "{{time}} 后",
+    "chartTemperature": "温度",
+    "chartFeelsLike": "体感温度"
   },
   "coolPlaces": {
     "badge": "附近清凉选择",
@@ -135,6 +139,313 @@
       "accessible": "无障碍",
       "nearTransport": "靠近公共交通",
       "saved": "已保存"
+    }
+  },
+  "dashboard": {
+    "privacyTitle": "隐私说明",
+    "privacyBody": "GPS 坐标只用于当前天气请求。HeatSafe 不会永久保存你的精确 GPS 位置。",
+    "weatherUnavailable": "天气不可用",
+    "loadErrorTitle": "现在无法加载实时天气。",
+    "loadErrorBody": "请检查网络连接，或尝试选择其他地区。",
+    "tryAgain": "重试",
+    "currentLocation": "当前位置",
+    "changeLocation": "更改位置",
+    "signsTitle": "需要认真对待的症状",
+    "healthdirectTitle": "Healthdirect",
+    "emergencyReminderTitle": "紧急提醒",
+    "openTool": "打开此工具",
+    "remindersTitle": "今日温和提醒",
+    "remindersBody": "即使天气舒适，也请保留这些小步骤。",
+    "notificationsTitle": "通知",
+    "enable": "启用",
+    "disable": "停用",
+    "prep": {
+      "water": "携带水瓶",
+      "sunscreen": "使用防晒霜",
+      "clothing": "穿轻便衣物",
+      "shade": "在阴凉处休息",
+      "avoid": "避免在最热时段长时间户外活动"
+    },
+    "lastUpdated": "上次更新 {{time}}。",
+    "signsBody": "头晕、昏厥、严重头痛、呕吐、意识混乱或异常虚弱，可能表示有人需要帮助。",
+    "healthdirectBody": "在澳大利亚可拨打 1800 022 222 获取健康建议。",
+    "emergencyReminderBody": "意识混乱、倒下、抽搐或失去意识可能是医疗紧急情况。请拨打 000。",
+    "notificationsBody": "可选浏览器通知只会在较热天气发送，并且六小时内最多一次。",
+    "disclaimer": "HeatSafe Student 提供一般高温安全建议，不能替代专业医疗建议或官方紧急信息。",
+    "notificationTitle": "预计天气较热",
+    "notificationBody": "今天最高可能达到 {{temp}}{{difference}}。请考虑选择较凉爽的出行时间并携带水。",
+    "warmerThanUsual": "，比通常高约 {{difference}}°C"
+  },
+  "weatherCard": {
+    "greeting": "你好，用户",
+    "refresh": "刷新",
+    "feelsLike": "体感",
+    "today": "今天",
+    "humidity": "湿度",
+    "wind": "风速",
+    "uvIndex": "紫外线",
+    "hottestTime": "最热时间",
+    "laterToday": "今天晚些时候"
+  },
+  "travel": {
+    "title": "出行计划",
+    "badge": "行程规划",
+    "intro": "检查你的出行时间是否会遇到一天中最热的时段。",
+    "check": "检查高温风险",
+    "resultTitle": "你的结果会显示在这里。",
+    "alternativesTitle": "建议替代方案",
+    "start": "出发地点",
+    "destination": "目的地",
+    "time": "出发时间",
+    "method": "交通方式",
+    "duration": "预计出行时长",
+    "missing": "请输入出发地点和目的地。",
+    "hot": "下午 5:30 后出发可能会更舒适。",
+    "warm": "这段行程可能仍然较热，尤其是在换乘时。",
+    "comfortable": "这段行程避开了一天中最热的时段。",
+    "conditions": "{{risk}} 状况",
+    "resultBody": "使用表单生成出行高温风险摘要。",
+    "alternatives": [
+      "提前或推迟出行",
+      "使用有空调的公共交通",
+      "选择有阴影的路线",
+      "途中在清凉地点休息",
+      "携带水",
+      "告诉朋友你的计划"
+    ]
+  },
+  "safety": {
+    "title": "个人安全计划",
+    "badge": "个人计划",
+    "preview": "预览",
+    "edit": "编辑",
+    "print": "打印",
+    "savePlan": "保存计划",
+    "planTitle": "用户的高温安全计划",
+    "intro": "创建、保存、预览、编辑或打印你的高温计划。",
+    "disclaimer": "这里只提供一般安全建议。本应用不会诊断疾病，也不能替代专业医疗建议。",
+    "saved": "你的安全计划已保存到此设备。",
+    "savedCoolLocation": "已保存清凉地点：{{place}}",
+    "recommendedTravel": "建议安全出行时间",
+    "recommendedTravelValue": "上午 10:30 前或晚上 7:00 后",
+    "preparationChecklist": "准备清单",
+    "actionsBefore": "高温天气前的行动",
+    "actionsBeforeBody": "早点关窗帘，冷藏饮用水，准备清淡餐食，给设备充电，并计划在有空调的地方停留。",
+    "actionsDuring": "高温期间的行动",
+    "actionsDuringBody": "最热时段尽量待在室内，定期喝水，避免不必要的户外出行，感觉不适时寻求帮助。",
+    "checklist": [
+      "携带水、防晒霜、帽子和充满电的手机。",
+      "出门前检查公共交通是否受影响。",
+      "把 {{place}} 保存为你的清凉停靠点。",
+      "告诉 {{person}} 你的出行计划。"
+    ],
+    "fields": {
+      "home": "住址",
+      "university": "学校",
+      "aircon": "空调可用情况",
+      "transport": "常用交通方式",
+      "contact": "紧急联系人",
+      "coolPlace": "首选清凉地点",
+      "medication": "常规用药提醒",
+      "waterReminder": "喝水提醒频率",
+      "healthConsiderations": "健康注意事项",
+      "alerts": "通知偏好"
+    },
+    "summary": {
+      "coolPlace": "已保存清凉地点",
+      "contact": "紧急联系人",
+      "transport": "交通方式",
+      "medication": "用药提醒",
+      "waterReminder": "喝水提醒",
+      "healthConsiderations": "健康注意事项",
+      "alerts": "通知"
+    }
+  },
+  "learn": {
+    "title": "学习",
+    "badge": "简单学习",
+    "showAnswer": "显示答案",
+    "terminology": "澳大利亚紧急术语",
+    "intro": "为在澳大利亚的国际学生准备的简短说明和小测验。",
+    "answer": "答案：{{answer}}",
+    "terms": {
+      "triple": "Triple Zero (000)：用于警察、消防或救护车紧急情况。",
+      "ambulance": "救护车：提供医疗紧急转运和紧急护理。",
+      "gp": "GP：全科医生，通常是非紧急健康问题的第一位医生。"
+    },
+    "topics": {
+      "heatwave": {
+        "title": "什么是澳大利亚热浪？",
+        "body": "连续几天很热并且夜晚也很暖，会让身体和住所更难降温。",
+        "quiz": "判断题：温暖的夜晚会增加高温风险。",
+        "answer": "正确"
+      },
+      "feels": {
+        "title": "了解体感温度",
+        "body": "体感温度结合了温度、湿度、风和阳光暴露，说明身体可能感觉有多热。",
+        "quiz": "规划时更安全的是只看气温，还是看体感温度？",
+        "answer": "体感温度"
+      },
+      "uv": {
+        "title": "了解紫外线指数",
+        "body": "极高紫外线会很快伤害皮肤。请使用阴凉处、防护衣物、太阳镜和 SPF 30+ 防晒霜。",
+        "quiz": "紫外线很强时，即使短途出门也需要防晒吗？",
+        "answer": "需要"
+      },
+      "home": {
+        "title": "准备住宿环境",
+        "body": "房间变热前关上窗帘，安全使用风扇，喝水；如果房间一直很热，请前往凉爽的公共场所。",
+        "quiz": "应该等到感觉非常不舒服才离开炎热房间吗？",
+        "answer": "不应该"
+      },
+      "travel": {
+        "title": "炎热天气安全出行",
+        "body": "避开最热时段，选择有空调的交通，携带水，并在换乘之间到清凉地点休息。",
+        "quiz": "说出一种降低出行高温风险的方法。",
+        "answer": "早点出行、使用有空调交通，或在清凉地点停留。"
+      },
+      "uni": {
+        "title": "在学校保持安全",
+        "body": "使用图书馆、学生中心、实验室和有阴影的路线。可询问学生服务处哪里有凉爽休息区。",
+        "quiz": "校园里哪些空间通常更凉爽？",
+        "answer": "图书馆、学生中心、实验室和有遮阴的建筑。"
+      },
+      "help": {
+        "title": "识别他人可能需要帮助",
+        "body": "警示信号包括头晕、意识混乱、昏厥、严重头痛、皮肤又热又干或呕吐。",
+        "quiz": "高温中出现意识混乱是严重警示信号吗？",
+        "answer": "是"
+      },
+      "doctor": {
+        "title": "什么时候联系健康专业人员",
+        "body": "如果症状持续或加重，请寻求医疗建议。如果有人可能严重不适，请拨打 000。",
+        "quiz": "澳大利亚紧急电话号码是多少？",
+        "answer": "000"
+      }
+    }
+  },
+  "emergency": {
+    "badge": "紧急帮助",
+    "title": "选择情况",
+    "call000": "拨打 000",
+    "contactsTitle": "其他有用联系人",
+    "confirmTitle": "拨打 Triple Zero？",
+    "yesCall": "是，拨打 000",
+    "intro": "此原型提供一般信息，不能替代专业医疗建议。",
+    "unsure": "如果你不确定且症状严重，请寻求紧急帮助。高温相关疾病可能会迅速恶化。",
+    "contacts": [
+      "Healthdirect：1800 022 222",
+      "校园安保",
+      "可信任的人",
+      "最近的医疗服务"
+    ],
+    "confirmBody": "只有当有人可能需要紧急警察、消防或救护车帮助时才拨打 000。",
+    "options": {
+      "advice": {
+        "title": "我需要一般安全建议",
+        "body": "移到更凉爽的地方，喝水，避免户外活动，并查看朋友或室友是否安全。"
+      },
+      "unwell": {
+        "title": "我感觉不舒服",
+        "body": "停止活动，移到有空调或阴凉处，小口喝水，松开紧身衣物；如果症状持续，请联系健康专业人员。"
+      },
+      "emergency": {
+        "title": "这可能是紧急情况",
+        "body": "在澳大利亚请拨打 Triple Zero (000) 获取紧急帮助。"
+      }
+    }
+  },
+  "weatherShared": {
+    "checking": "正在检查你附近的天气...",
+    "hourlyTitle": "每小时预报",
+    "hourlyBody": "横向滑动查看今天剩余时间。",
+    "warmest": "最热",
+    "weeklyTitle": "七天预报",
+    "forecast": "预报",
+    "highHeat": "高温",
+    "warm": "温暖",
+    "comfortable": "舒适",
+    "travelTitle": "更舒适的出行时间",
+    "laterToday": "今天晚些时候",
+    "officialInfo": "官方信息",
+    "officialWarnings": "官方警报：澳大利亚气象局",
+    "averageUnavailable": "本地平均值暂不可用。",
+    "coolingPlaces": "附近清凉地点",
+    "safetyPlan": "安全计划",
+    "drinkWater": "定期喝水",
+    "sunShade": "使用防晒、阴凉处和轻便衣物",
+    "signs": "了解中暑症状",
+    "similarTravel": "今晚温度预计相近。请携带水，并考虑清凉休息地点。",
+    "leavingCooler": "{{time}} 后出发可能感觉凉爽约 {{difference}}°C。",
+    "warmestUpcoming": "即将到来的最热时段：{{time}}",
+    "suggestedAt": "建议：{{time}}，体感 {{temp}}",
+    "prototypeRules": "HeatSafe Student 使用原型指导规则。这不是澳大利亚气象局的官方热浪分类。",
+    "officialLink": "查看澳大利亚官方热浪预报和警报"
+  },
+  "location": {
+    "title": "查看你附近的天气",
+    "body": "允许位置访问以接收本地高温信息和附近清凉建议。你的精确位置不会被保存。",
+    "choose": "选择 suburb",
+    "placeholder": "搜索 Hawthorn, Carlton...",
+    "searching": "正在搜索澳大利亚地点...",
+    "none": "未找到澳大利亚 suburb。",
+    "error": "Suburb 搜索暂不可用。",
+    "useHawthorn": "使用 Hawthorn"
+  },
+  "heatStatus": {
+    "comfortable": "舒适",
+    "warmer": "比平常暖",
+    "high": "高温",
+    "persistent": "持续高温",
+    "comfortableMsg": "当前情况接近此地点的通常温度。",
+    "warmerMsg": "今天比平常更暖。做一些小准备可以帮助你保持舒适。",
+    "highMsg": "今天预计高温。请考虑在最热时段调整户外计划。",
+    "persistentMsg": "炎热白天和温暖夜晚预计会持续。你的身体夜间恢复时间可能更少。",
+    "comparison": "今天最高可能达到 {{temp}}，比此地点通常温度约 {{difference}}°C {{direction}}。",
+    "warmerDirection": "更暖",
+    "coolerDirection": "更凉",
+    "warmNights": "温暖夜晚会减少恢复时间，请准备清凉休息选择。",
+    "checkFriends": "请关心朋友或室友。"
+  },
+  "travelDefaults": {
+    "start": "Carlton 学生住宿",
+    "destination": "Swinburne 大学校区",
+    "time": "1:30 PM",
+    "method": "电车和火车",
+    "duration": "42 分钟"
+  },
+  "safetyValues": {
+    "home": "Carlton 学生住宿",
+    "university": "Swinburne 大学",
+    "aircon": "有时",
+    "transport": "电车和火车",
+    "contact": "Asha - 04xx xxx xxx",
+    "coolPlace": "State Library Victoria",
+    "medication": "未设置常规提醒",
+    "waterReminder": "每 45 分钟",
+    "healthConsiderations": "未列出",
+    "alerts": "短信和应用通知"
+  },
+  "circumstances": {
+    "newWeather": {
+      "label": "刚接触澳大利亚天气",
+      "text": "即使早晨感觉温和，也请认真看待高温预报。墨尔本中午后可能很快变得炎热。"
+    },
+    "noAircon": {
+      "label": "没有空调",
+      "text": "计划在最热时段待在图书馆、购物中心、大学建筑或清凉中心。"
+    },
+    "university": {
+      "label": "前往大学",
+      "text": "尽可能在上午 11 点前或下午 6 点后出行，并让换乘时间短一些、选择有阴影的地方。"
+    },
+    "outdoors": {
+      "label": "户外工作",
+      "text": "询问是否可以增加休息、使用阴凉处、防晒霜、饮水，并把重体力工作避开最热时段。"
+    },
+    "alone": {
+      "label": "独自居住",
+      "text": "把你的计划告诉可信任的朋友，并在一天中最热的时候安排一次确认联系。"
     }
   }
 }

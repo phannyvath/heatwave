@@ -93,7 +93,11 @@
       "warm": "Carry water, use sunscreen, wear light clothing and choose shade when you can.",
       "hot": "Consider shorter outdoor trips, cooler rest stops and a later travel time.",
       "very-hot": "Prepare water, cooling options, transport plans and check in with friends."
-    }
+    },
+    "before": "before {{time}}",
+    "after": "after {{time}}",
+    "chartTemperature": "Temperature",
+    "chartFeelsLike": "Feels like"
   },
   "coolPlaces": {
     "badge": "Cooling options nearby",
@@ -135,6 +139,316 @@
       "accessible": "Accessible",
       "nearTransport": "Near public transport",
       "saved": "Saved"
+    }
+  },
+  "dashboard": {
+    "privacyTitle": "Privacy note",
+    "privacyBody": "GPS coordinates are used only for the current weather request. HeatSafe does not permanently store your precise GPS location.",
+    "weatherUnavailable": "Weather unavailable",
+    "loadErrorTitle": "We could not load live weather just now.",
+    "loadErrorBody": "Please check your connection or try another suburb.",
+    "tryAgain": "Try again",
+    "currentLocation": "Current location",
+    "changeLocation": "Change location",
+    "lastUpdated": "Last updated {{time}}.",
+    "signsTitle": "Signs to take seriously",
+    "signsBody": "Dizziness, fainting, severe headache, vomiting, confusion or unusual weakness can mean someone needs help.",
+    "healthdirectTitle": "Healthdirect",
+    "healthdirectBody": "Call 1800 022 222 for health advice in Australia.",
+    "emergencyReminderTitle": "Emergency reminder",
+    "emergencyReminderBody": "Confusion, collapse, seizures or loss of consciousness may indicate a medical emergency. Call Triple Zero (000).",
+    "openTool": "Open this tool",
+    "remindersTitle": "Today's gentle reminders",
+    "remindersBody": "Keep these small steps available, even on comfortable days.",
+    "notificationsTitle": "Notifications",
+    "notificationsBody": "Optional browser notifications are only sent for warmer days, and no more than once every six hours.",
+    "enable": "Enable",
+    "disable": "Disable",
+    "disclaimer": "HeatSafe Student provides general heat-safety guidance and does not replace professional medical advice or official emergency information.",
+    "notificationTitle": "A warmer day is expected",
+    "notificationBody": "Today may reach {{temp}}{{difference}}. Consider a cooler travel time and carry water.",
+    "warmerThanUsual": ", around {{difference}}°C warmer than usual",
+    "prep": {
+      "water": "Carry a water bottle",
+      "sunscreen": "Use sunscreen",
+      "clothing": "Wear light clothing",
+      "shade": "Rest in the shade",
+      "avoid": "Avoid long outdoor activities during the hottest hours"
+    }
+  },
+  "weatherCard": {
+    "greeting": "Hello user",
+    "forecastSource": "Forecast data: Open-Meteo",
+    "feelsLike": "Feels like",
+    "today": "Today",
+    "humidity": "Humidity",
+    "wind": "Wind",
+    "uvIndex": "UV index",
+    "hottestTime": "Hottest time",
+    "laterToday": "Later today",
+    "lastUpdated": "Last updated {{time}}",
+    "refresh": "Refresh"
+  },
+  "travel": {
+    "badge": "Journey planning",
+    "title": "Travel Planner",
+    "intro": "Check whether your travel time overlaps with the hottest part of the day.",
+    "start": "Starting location",
+    "destination": "Destination",
+    "time": "Departure time",
+    "method": "Transport method",
+    "duration": "Expected travel duration",
+    "missing": "Enter both starting location and destination.",
+    "check": "Check heat risk",
+    "hot": "Leaving after 5:30 PM may feel more comfortable.",
+    "warm": "This journey may still feel warm, especially during transfers.",
+    "comfortable": "This journey avoids the warmest part of the day.",
+    "conditions": "{{risk}} conditions",
+    "resultTitle": "Your result will appear here.",
+    "resultBody": "Use the form to generate a travel heat-risk summary.",
+    "alternativesTitle": "Recommended alternatives",
+    "alternatives": [
+      "Travel earlier or later",
+      "Use air-conditioned public transport",
+      "Choose a shaded route",
+      "Stop at a nearby cool place",
+      "Carry water",
+      "Inform a friend"
+    ]
+  },
+  "safety": {
+    "badge": "Personal planning",
+    "title": "Personal Safety Plan",
+    "intro": "Create, save, preview, edit, or print your heatwave plan.",
+    "disclaimer": "General safety guidance only. This app does not diagnose conditions or replace professional medical advice.",
+    "preview": "Preview",
+    "edit": "Edit",
+    "print": "Print",
+    "saved": "Your safety plan has been saved to this device.",
+    "savePlan": "Save plan",
+    "planTitle": "User's heatwave safety plan",
+    "savedCoolLocation": "Saved cool location: {{place}}",
+    "recommendedTravel": "Recommended safe travel time",
+    "recommendedTravelValue": "Before 10:30 AM or after 7:00 PM",
+    "preparationChecklist": "Preparation checklist",
+    "actionsBefore": "Actions before a heatwave",
+    "actionsBeforeBody": "Close blinds early, chill water, prepare light meals, charge devices, and plan time in an air-conditioned place.",
+    "actionsDuring": "Actions during a heatwave",
+    "actionsDuringBody": "Stay indoors during peak heat, drink water regularly, avoid unnecessary outdoor travel, and seek help if you feel unwell.",
+    "checklist": [
+      "Carry water, sunscreen, hat, and charged phone.",
+      "Check public transport disruptions before leaving.",
+      "Save {{place}} as your cooling stop.",
+      "Tell {{person}} your travel plan."
+    ],
+    "fields": {
+      "home": "Home location",
+      "university": "University",
+      "aircon": "Availability of air conditioning",
+      "transport": "Normal transport method",
+      "contact": "Emergency contact",
+      "coolPlace": "Preferred cool place",
+      "medication": "Regular medication reminder",
+      "waterReminder": "Water reminder frequency",
+      "healthConsiderations": "Health considerations",
+      "alerts": "Notification preferences"
+    },
+    "summary": {
+      "coolPlace": "Saved cool location",
+      "contact": "Emergency contact",
+      "transport": "Transport method",
+      "medication": "Medication reminder",
+      "waterReminder": "Water reminder",
+      "healthConsiderations": "Health considerations",
+      "alerts": "Notifications"
+    }
+  },
+  "learn": {
+    "badge": "Plain English learning",
+    "title": "Learn",
+    "intro": "Short explanations and quick quizzes for international students in Australia.",
+    "showAnswer": "Show answer",
+    "answer": "Answer: {{answer}}",
+    "terminology": "Australian emergency terminology",
+    "terms": {
+      "triple": "Triple Zero (000): call for police, fire, or ambulance emergencies.",
+      "ambulance": "Ambulance: medical emergency transport and urgent care.",
+      "gp": "GP: a general practitioner, often the first doctor for non-emergency health concerns."
+    },
+    "topics": {
+      "heatwave": {
+        "title": "What an Australian heatwave is",
+        "body": "Several very hot days and warm nights can make it hard for your body and home to cool down.",
+        "quiz": "True or false: warm nights can increase heat risk.",
+        "answer": "True"
+      },
+      "feels": {
+        "title": "Understanding feels like temperature",
+        "body": "Feels like temperature combines heat, humidity, wind, and sun exposure to describe how hot your body may feel.",
+        "quiz": "Which is safer to use for planning: air temperature only, or feels like temperature?",
+        "answer": "Feels like temperature"
+      },
+      "uv": {
+        "title": "Understanding the UV Index",
+        "body": "Extreme UV can damage skin quickly. Use shade, protective clothing, sunglasses, and SPF 30+ sunscreen.",
+        "quiz": "At Extreme UV, should you use sun protection even for short trips?",
+        "answer": "Yes"
+      },
+      "home": {
+        "title": "Preparing accommodation",
+        "body": "Close blinds before rooms heat up, use fans safely, drink water, and move to a cool public place if your room stays hot.",
+        "quiz": "Should you wait until you feel very unwell before leaving a hot room?",
+        "answer": "No"
+      },
+      "travel": {
+        "title": "Staying safe while travelling",
+        "body": "Avoid peak heat, choose air-conditioned transport, carry water, and pause at cool places between transfers.",
+        "quiz": "Name one way to reduce travel heat risk.",
+        "answer": "Travel earlier, use air-conditioned transport, or stop at a cool place."
+      },
+      "uni": {
+        "title": "Staying safe at university",
+        "body": "Use libraries, student hubs, labs, and shaded routes. Ask student services where cool rest areas are located.",
+        "quiz": "What campus spaces are often cooler?",
+        "answer": "Libraries, student hubs, labs, and shaded buildings."
+      },
+      "help": {
+        "title": "Recognising someone may need help",
+        "body": "Warning signs include dizziness, confusion, fainting, severe headache, hot dry skin, or vomiting.",
+        "quiz": "Is confusion during extreme heat a serious warning sign?",
+        "answer": "Yes"
+      },
+      "doctor": {
+        "title": "When to contact a health professional",
+        "body": "Seek medical advice if symptoms persist or worsen. Call Triple Zero (000) if someone may be seriously unwell.",
+        "quiz": "What number is used for emergencies in Australia?",
+        "answer": "000"
+      }
+    }
+  },
+  "emergency": {
+    "badge": "Emergency Help",
+    "title": "Choose the situation",
+    "intro": "This prototype provides general information and does not replace professional medical advice.",
+    "unsure": "If you are unsure and symptoms are serious, seek urgent help. Heat illness can worsen quickly.",
+    "call000": "Call 000",
+    "contactsTitle": "Other helpful contacts",
+    "contacts": [
+      "Healthdirect: 1800 022 222",
+      "Campus security",
+      "A trusted person",
+      "Nearest medical service"
+    ],
+    "confirmTitle": "Call Triple Zero?",
+    "confirmBody": "Only call 000 if someone may need urgent police, fire, or ambulance help.",
+    "yesCall": "Yes, call 000",
+    "options": {
+      "advice": {
+        "title": "I need general safety advice",
+        "body": "Move to a cooler place, drink water, avoid outdoor activity, and check on friends or housemates."
+      },
+      "unwell": {
+        "title": "I feel unwell",
+        "body": "Stop activity, move to air conditioning or shade, sip water, loosen tight clothing, and contact a health professional if symptoms continue."
+      },
+      "emergency": {
+        "title": "This may be an emergency",
+        "body": "Call Triple Zero (000) for emergency assistance in Australia."
+      }
+    }
+  },
+  "weatherShared": {
+    "checking": "Checking the weather near you...",
+    "hourlyTitle": "Hourly forecast",
+    "hourlyBody": "Swipe sideways to compare the rest of today.",
+    "hourlyAria": "Hourly forecast",
+    "warmest": "Warmest",
+    "weeklyTitle": "Seven-day forecast",
+    "forecast": "Forecast",
+    "highHeat": "High heat",
+    "warm": "Warm",
+    "comfortable": "Comfortable",
+    "travelTitle": "More comfortable travel time",
+    "laterToday": "Later today",
+    "officialInfo": "Official information",
+    "officialLink": "Check official Australian heatwave forecasts and warnings",
+    "officialWarnings": "Official warnings: Bureau of Meteorology",
+    "averageUnavailable": "Local average is currently unavailable.",
+    "prototypeRules": "HeatSafe Student uses prototype guidance rules. This is not an official Bureau of Meteorology heatwave classification.",
+    "coolingPlaces": "Nearby cool places",
+    "safetyPlan": "Safety plan",
+    "drinkWater": "Drink water regularly",
+    "sunShade": "Use sunscreen, shade and light clothing",
+    "signs": "Know signs of heat exhaustion",
+    "similarTravel": "Temperatures are expected to remain similar this evening. Bring water and consider a cool rest location.",
+    "leavingCooler": "Leaving after {{time}} may feel approximately {{difference}}°C cooler.",
+    "warmestUpcoming": "Warmest upcoming: {{time}}",
+    "suggestedAt": "Suggested: {{time}} at {{temp}} feels-like"
+  },
+  "location": {
+    "title": "See the weather near you",
+    "body": "Allow location access to receive local heat information and nearby cooling suggestions. Your precise location will not be saved.",
+    "choose": "Choose a suburb",
+    "placeholder": "Search Hawthorn, Carlton...",
+    "searching": "Searching Australian locations...",
+    "none": "No Australian suburb found.",
+    "error": "Suburb search is temporarily unavailable.",
+    "useHawthorn": "Use Hawthorn"
+  },
+  "heatStatus": {
+    "comfortable": "Comfortable",
+    "warmer": "Warmer than usual",
+    "high": "High heat",
+    "persistent": "Persistent heat",
+    "comfortableMsg": "Conditions are close to the usual temperature for this location.",
+    "warmerMsg": "Today is warmer than usual. A few small preparations may help you stay comfortable.",
+    "highMsg": "High heat is expected today. Consider adjusting outdoor plans during the hottest hours.",
+    "persistentMsg": "Hot days and warm nights are expected to continue. Your body may have less time to recover overnight.",
+    "comparison": "Today may reach {{temp}}, around {{difference}}°C {{direction}} than usual for this location.",
+    "warmerDirection": "warmer",
+    "coolerDirection": "cooler",
+    "warmNights": "Warm nights can reduce recovery, so prepare cool rest options.",
+    "checkFriends": "Check in with friends or housemates."
+  },
+  "travelDefaults": {
+    "start": "Carlton student accommodation",
+    "destination": "Swinburne University campus",
+    "time": "1:30 PM",
+    "method": "Tram and train",
+    "duration": "42 minutes"
+  },
+  "safetyValues": {
+    "home": "Carlton student accommodation",
+    "university": "Swinburne University",
+    "aircon": "Sometimes",
+    "transport": "Tram and train",
+    "contact": "Asha - 04xx xxx xxx",
+    "coolPlace": "State Library Victoria",
+    "medication": "No regular reminder set",
+    "waterReminder": "Every 45 minutes",
+    "healthConsiderations": "None listed",
+    "alerts": "SMS and app notifications"
+  },
+  "circumstances": {
+    "newWeather": {
+      "label": "New to Australian weather",
+      "text": "Treat forecast heat seriously even if the morning feels mild. Melbourne can become dangerous quickly after midday."
+    },
+    "noAircon": {
+      "label": "No air conditioning",
+      "text": "Plan to spend the hottest hours in a library, shopping centre, university building, or designated cooling centre."
+    },
+    "university": {
+      "label": "Travelling to university",
+      "text": "Travel before 11 AM or after 6 PM where possible, and keep transfers short and shaded."
+    },
+    "outdoors": {
+      "label": "Working outdoors",
+      "text": "Ask about extra breaks, shade, sunscreen, water access, and moving heavy tasks away from peak heat."
+    },
+    "alone": {
+      "label": "Living alone",
+      "text": "Share your plan with a trusted friend and set a check-in time during the hottest part of the day."
     }
   }
 }

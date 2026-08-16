@@ -1,9 +1,11 @@
 import Card from '../Card.jsx'
+import { useTranslation } from 'react-i18next'
 
 export default function WeatherSkeleton() {
+  const { t } = useTranslation()
   return (
     <div className="space-y-4" aria-live="polite" aria-busy="true">
-      <p className="text-sm font-bold text-muted">Checking the weather near you...</p>
+      <p className="text-sm font-bold text-muted">{t('weatherShared.checking')}</p>
       <Card className="p-5">
         <div className="animate-pulse space-y-4">
           <div className="h-4 w-32 rounded-full bg-orange-100" />

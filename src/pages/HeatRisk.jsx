@@ -8,7 +8,6 @@ import Badge from '../components/Badge.jsx'
 import Button from '../components/Button.jsx'
 import TemperatureUnitSelector from '../components/TemperatureUnitSelector.jsx'
 import WeatherSkeleton from '../components/weather/WeatherSkeleton.jsx'
-import { circumstanceSuggestions } from '../data/mockData.js'
 import { useLocation as useStudentLocation } from '../hooks/useLocation.js'
 import { useWeather } from '../hooks/useWeather.js'
 import { calculateDailyHeatRisk, calculateHeatRisk, heatRiskContent } from '../utils/calculateHeatRisk.js'
@@ -22,7 +21,7 @@ const MELBOURNE_CBD = {
   source: 'default',
 }
 
-const circumstances = Object.keys(circumstanceSuggestions)
+const circumstances = ['newWeather', 'noAircon', 'university', 'outdoors', 'alone']
 
 function formatHour(isoTime, locale = 'en') {
   return new Intl.DateTimeFormat(locale, { hour: 'numeric', minute: '2-digit' }).format(new Date(isoTime))
@@ -36,7 +35,7 @@ function getDayHours(hourly) {
   })
 }
 
-function getWarmestWindow(hours, locale) {
+function getWarmestWindow(hours, locale, t) {
   if (!hours.length) return null
   const peak = Math.max(...hours.map((hour) => hour.apparentTemperature))
   const hotHours = hours.filter((hour) => peak - hour.apparentTemperature <= 1.5)
@@ -56,16 +55,16 @@ function getWarmestWindow(hours, locale) {
     averageHumidity,
     comfortable:
       morning || evening
-        ? `${morning ? `before ${formatHour(morning.time, locale)}` : ''}${morning && evening ? ' or ' : ''}${
-            evening ? `after ${formatHour(evening.time, locale)}` : ''
+        ? `${morning ? t('heatRisk.before', { time: formatHour(morning.time, locale) }) : ''}${morning && evening ? ' / ' : ''}${
+            evening ? t('heatRisk.after', { time: formatHour(evening.time, locale) }) : ''
           }.`
         : '',
   }
 }
 
-function getWarmestLabelForDate(hourly, date, locale) {
+function getWarmestLabelForDate(hourly, date, locale, t) {
   const hours = hourly.filter((hour) => hour.time.slice(0, 10) === date)
-  const window = getWarmestWindow(hours, locale)
+  const window = getWarmestWindow(hours, locale, t)
   return window?.label || formatHour(`${date}T15:00`, locale)
 }
 
@@ -96,11 +95,11 @@ export default function HeatRisk() {
   const { location } = useStudentLocation()
   const activeLocation = location || MELBOURNE_CBD
   const { forecast, loading, refreshing, error, isCached, refresh } = useWeather(activeLocation)
-  const [selected, setSelected] = useState(['New to Australian weather'])
+  const [selected, setSelected] = useState(['newWeather'])
   const tempUnit = prefs.tempUnit === 'F' ? 'fahrenheit' : prefs.tempUnit || 'celsius'
 
   const dayHours = useMemo(() => (forecast ? getDayHours(forecast.hourly) : []), [forecast])
-  const warmestWindow = useMemo(() => getWarmestWindow(dayHours, locale), [dayHours, locale])
+  const warmestWindow = useMemo(() => getWarmestWindow(dayHours, locale, t), [dayHours, locale, t])
 
   function setTemperatureUnit(tempUnitValue) {
     setPrefs({ ...prefs, tempUnit: tempUnitValue })
@@ -215,8 +214,8 @@ export default function HeatRisk() {
                 <YAxis domain={getChartDomain(dayHours)} tickLine={false} axisLine={false} width={36} tickFormatter={(value) => formatTemp(value, tempUnit)} />
                 <Tooltip formatter={(value) => formatTemp(value, tempUnit)} />
                 <Legend wrapperStyle={{ fontSize: 12, fontWeight: 800 }} />
-                <Area name="Temperature" type="monotone" dataKey="temperature" stroke="#F47B20" strokeWidth={3} fill="url(#liveTempFill)" />
-                <Area name="Feels like" type="monotone" dataKey="feelsLike" stroke="#806B60" strokeWidth={2} fill="transparent" />
+                <Area name={t('heatRisk.chartTemperature')} type="monotone" dataKey="temperature" stroke="#F47B20" strokeWidth={3} fill="url(#liveTempFill)" />
+                <Area name={t('heatRisk.chartFeelsLike')} type="monotone" dataKey="feelsLike" stroke="#806B60" strokeWidth={2} fill="transparent" />
               </AreaChart>
             </ResponsiveContainer>
           </div>
@@ -258,7 +257,7 @@ export default function HeatRisk() {
               </div>
               <p className="mt-4 text-3xl font-black text-navy">{formatTemp(Math.round(day.max), tempUnit)}</p>
               <p className="mt-1 text-sm text-slate-500">{t('heatRisk.low', { temp: formatTemp(Math.round(day.min), tempUnit) })}</p>
-              <p className="mt-3 text-sm font-bold text-muted">{t('heatRisk.hottestExpected', { time: getWarmestLabelForDate(forecast.hourly, day.date, locale) })}</p>
+              <p className="mt-3 text-sm font-bold text-muted">{t('heatRisk.hottestExpected', { time: getWarmestLabelForDate(forecast.hourly, day.date, locale, t) })}</p>
               <p className="mt-4 text-sm text-slate-600">{t(`heatRisk.advice.${risk}`)}</p>
             </Card>
           )
@@ -300,7 +299,7 @@ export default function HeatRisk() {
               onClick={() => toggle(item)}
               aria-pressed={selected.includes(item)}
             >
-              {item}
+              {t(`circumstances.${item}.label`)}
             </button>
           ))}
         </div>
@@ -310,8 +309,8 @@ export default function HeatRisk() {
           ) : (
             selected.map((item) => (
               <div key={item} className="rounded-2xl border border-orange-100 bg-skysoft p-4">
-                <p className="font-bold text-navy">{item}</p>
-                <p className="mt-1 text-sm leading-6 text-slate-700">{circumstanceSuggestions[item]}</p>
+                <p className="font-bold text-navy">{t(`circumstances.${item}.label`)}</p>
+                <p className="mt-1 text-sm leading-6 text-slate-700">{t(`circumstances.${item}.text`)}</p>
               </div>
             ))
           )}

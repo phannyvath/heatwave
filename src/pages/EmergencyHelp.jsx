@@ -3,32 +3,34 @@ import { HeartPulse, Info, PhoneCall, UserRoundCheck } from 'lucide-react'
 import Card from '../components/Card.jsx'
 import Badge from '../components/Badge.jsx'
 import Button from '../components/Button.jsx'
+import { useTranslation } from 'react-i18next'
 
 const options = [
   {
     id: 'advice',
-    title: 'I need general safety advice',
+    titleKey: 'emergency.options.advice.title',
     icon: Info,
     tone: 'navy',
-    body: 'Move to a cooler place, drink water, avoid outdoor activity, and check on friends or housemates.',
+    bodyKey: 'emergency.options.advice.body',
   },
   {
     id: 'unwell',
-    title: 'I feel unwell',
+    titleKey: 'emergency.options.unwell.title',
     icon: HeartPulse,
     tone: 'high',
-    body: 'Stop activity, move to air conditioning or shade, sip water, loosen tight clothing, and contact a health professional if symptoms continue.',
+    bodyKey: 'emergency.options.unwell.body',
   },
   {
     id: 'emergency',
-    title: 'This may be an emergency',
+    titleKey: 'emergency.options.emergency.title',
     icon: PhoneCall,
     tone: 'danger',
-    body: 'Call Triple Zero (000) for emergency assistance in Australia.',
+    bodyKey: 'emergency.options.emergency.body',
   },
 ]
 
 export default function EmergencyHelp() {
+  const { t } = useTranslation()
   const [selected, setSelected] = useState('emergency')
   const [confirmCall, setConfirmCall] = useState(false)
   const current = options.find((option) => option.id === selected)
@@ -36,9 +38,9 @@ export default function EmergencyHelp() {
   return (
     <div className="space-y-5">
       <div>
-        <Badge tone="danger">Emergency Help</Badge>
-        <h1 className="mt-3 text-2xl font-black text-navy sm:text-3xl">Choose the situation</h1>
-        <p className="mt-2 max-w-3xl text-slate-600">This prototype provides general information and does not replace professional medical advice.</p>
+        <Badge tone="danger">{t('emergency.badge')}</Badge>
+        <h1 className="mt-3 text-2xl font-black text-navy sm:text-3xl">{t('emergency.title')}</h1>
+        <p className="mt-2 max-w-3xl text-slate-600">{t('emergency.intro')}</p>
       </div>
 
       <div className="grid gap-4 lg:grid-cols-3">
@@ -56,8 +58,8 @@ export default function EmergencyHelp() {
                 </div>
                 <span className="text-sm font-black text-slate-400">{index + 1}</span>
               </div>
-              <h2 className="mt-4 text-lg font-black text-navy">{option.title}</h2>
-              <p className="mt-2 text-sm leading-6 text-slate-600">{option.body}</p>
+              <h2 className="mt-4 text-lg font-black text-navy">{t(option.titleKey)}</h2>
+              <p className="mt-2 text-sm leading-6 text-slate-600">{t(option.bodyKey)}</p>
             </button>
           )
         })}
@@ -66,26 +68,26 @@ export default function EmergencyHelp() {
       <Card className={`p-6 ${selected === 'emergency' ? 'border-orange-200 bg-orange-50' : ''}`}>
         <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
           <div>
-            <Badge tone={current.tone}>{current.title}</Badge>
-            <p className={`mt-4 text-2xl font-black ${selected === 'emergency' ? 'text-danger' : 'text-navy'}`}>{current.body}</p>
+            <Badge tone={current.tone}>{t(current.titleKey)}</Badge>
+            <p className={`mt-4 text-2xl font-black ${selected === 'emergency' ? 'text-danger' : 'text-navy'}`}>{t(current.bodyKey)}</p>
             <p className="mt-3 text-sm leading-6 text-slate-700">
-              If you are unsure and symptoms are serious, seek urgent help. Heat illness can worsen quickly.
+              {t('emergency.unsure')}
             </p>
           </div>
           <Button variant={selected === 'emergency' ? 'danger' : 'primary'} onClick={() => setConfirmCall(true)} className="w-full md:w-auto">
             <PhoneCall className="size-4" />
-            Call 000
+            {t('emergency.call000')}
           </Button>
         </div>
       </Card>
 
       <Card className="p-5">
-        <h2 className="text-lg font-black text-navy">Other helpful contacts</h2>
+        <h2 className="text-lg font-black text-navy">{t('emergency.contactsTitle')}</h2>
         <div className="mt-4 grid gap-3 md:grid-cols-2">
-          {['Healthdirect: 1800 022 222', 'Campus security', 'A trusted person', 'Nearest medical service'].map((item) => (
-            <p key={item} className="flex items-center gap-3 rounded-2xl bg-cream p-4 text-sm font-bold text-slate-700">
+          {[0, 1, 2, 3].map((index) => (
+            <p key={index} className="flex items-center gap-3 rounded-2xl bg-cream p-4 text-sm font-bold text-slate-700">
               <UserRoundCheck className="size-5 text-ocean" />
-              {item}
+              {t(`emergency.contacts.${index}`)}
             </p>
           ))}
         </div>
@@ -94,17 +96,17 @@ export default function EmergencyHelp() {
       {confirmCall && (
         <div className="fixed inset-0 z-50 grid place-items-center bg-cocoa/40 px-4">
           <Card className="max-w-sm p-5">
-            <h2 className="text-xl font-black text-navy">Call Triple Zero?</h2>
+            <h2 className="text-xl font-black text-navy">{t('emergency.confirmTitle')}</h2>
             <p className="mt-2 text-sm leading-6 text-slate-700">
-              Only call 000 if someone may need urgent police, fire, or ambulance help.
+              {t('emergency.confirmBody')}
             </p>
             <div className="mt-5 grid gap-2 sm:grid-cols-2">
               <Button variant="ghost" onClick={() => setConfirmCall(false)}>
-                Cancel
+                {t('actions.cancel')}
               </Button>
               <Button variant="danger" as="a" href="tel:000">
                 <PhoneCall className="size-4" />
-                Yes, call 000
+                {t('emergency.yesCall')}
               </Button>
             </div>
           </Card>

@@ -3,6 +3,7 @@ import { LocateFixed, MapPin, Search } from 'lucide-react'
 import Button from '../Button.jsx'
 import Card from '../Card.jsx'
 import { searchAustralianLocations } from '../../services/geocodingService.js'
+import { useTranslation } from 'react-i18next'
 
 export default function LocationSelector({
   mode = 'card',
@@ -11,6 +12,7 @@ export default function LocationSelector({
   onSelectLocation,
   onUseDefault,
 }) {
+  const { t } = useTranslation()
   const [query, setQuery] = useState('')
   const [results, setResults] = useState([])
   const [loading, setLoading] = useState(false)
@@ -34,7 +36,7 @@ export default function LocationSelector({
         setResults(matches)
         setActiveIndex(matches.length ? 0 : -1)
       } catch {
-        if (!controller.signal.aborted) setError('Suburb search is temporarily unavailable.')
+        if (!controller.signal.aborted) setError(t('location.error'))
       } finally {
         if (!controller.signal.aborted) setLoading(false)
       }
@@ -44,7 +46,7 @@ export default function LocationSelector({
       controller.abort()
       window.clearTimeout(timeout)
     }
-  }, [query])
+  }, [query, t])
 
   function choose(result) {
     onSelectLocation(result)
@@ -77,9 +79,9 @@ export default function LocationSelector({
     <>
       {mode === 'card' && (
         <div>
-          <h2 className="text-2xl font-black text-navy">See the weather near you</h2>
+          <h2 className="text-2xl font-black text-navy">{t('location.title')}</h2>
           <p className="mt-2 text-sm leading-6 text-slate-600">
-            Allow location access to receive local heat information and nearby cooling suggestions. Your precise location will not be saved.
+            {t('location.body')}
           </p>
         </div>
       )}
@@ -89,17 +91,17 @@ export default function LocationSelector({
       <div className="flex flex-col gap-2 sm:flex-row">
         <Button onClick={onUseLocation} className="min-h-11">
           <LocateFixed className="size-4" />
-          Use my location
+          {t('actions.useMyLocation')}
         </Button>
         <Button variant="ghost" onClick={onUseDefault} className="min-h-11">
           <MapPin className="size-4" />
-          Use Hawthorn
+          {t('location.useHawthorn')}
         </Button>
       </div>
 
       <div className="relative">
         <label className="block">
-          <span className="text-sm font-black text-navy">Choose a suburb</span>
+          <span className="text-sm font-black text-navy">{t('location.choose')}</span>
           <div className="mt-2 flex min-w-0 items-center gap-2 rounded-2xl border border-orange-100 bg-cream px-3 focus-within:border-ocean focus-within:ring-2 focus-within:ring-orange-100">
             <Search className="size-5 shrink-0 text-muted" aria-hidden="true" />
             <input
@@ -107,7 +109,7 @@ export default function LocationSelector({
               value={query}
               onChange={(event) => setQuery(event.target.value)}
               onKeyDown={handleKeyDown}
-              placeholder="Search Hawthorn, Carlton..."
+              placeholder={t('location.placeholder')}
               role="combobox"
               aria-expanded={results.length > 0}
               aria-controls="location-results"
@@ -123,9 +125,9 @@ export default function LocationSelector({
             className="absolute left-0 right-0 top-full z-40 mt-2 max-h-72 overflow-y-auto rounded-2xl border border-orange-100 bg-white p-2 shadow-soft"
             role="listbox"
           >
-            {loading && <p className="p-3 text-sm font-bold text-muted">Searching Australian locations...</p>}
+            {loading && <p className="p-3 text-sm font-bold text-muted">{t('location.searching')}</p>}
             {error && <p className="p-3 text-sm font-bold text-danger">{error}</p>}
-            {!loading && !error && results.length === 0 && <p className="p-3 text-sm font-bold text-muted">No Australian suburb found.</p>}
+            {!loading && !error && results.length === 0 && <p className="p-3 text-sm font-bold text-muted">{t('location.none')}</p>}
             {!loading &&
               !error &&
               results.map((result, index) => (

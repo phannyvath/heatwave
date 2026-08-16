@@ -2,12 +2,14 @@ import Card from '../Card.jsx'
 import { formatTemp } from '../../utils/temperature.js'
 import { getHottestHour } from '../../utils/heatRisk.js'
 import { getWeatherIcon } from '../../utils/weatherCodes.js'
+import { useTranslation } from 'react-i18next'
 
 function formatHour(isoTime) {
   return new Intl.DateTimeFormat('en-AU', { hour: 'numeric' }).format(new Date(isoTime))
 }
 
 export default function HourlyForecast({ hours, prefs }) {
+  const { t } = useTranslation()
   const todayHours = hours
     .filter((hour) => new Date(hour.time).toDateString() === new Date().toDateString())
     .slice(0, 24)
@@ -17,11 +19,11 @@ export default function HourlyForecast({ hours, prefs }) {
     <Card className="p-5">
       <div className="flex items-start justify-between gap-3">
         <div>
-          <h2 className="text-xl font-black text-navy">Hourly forecast</h2>
-          <p className="mt-1 text-sm text-slate-600">Swipe sideways to compare the rest of today.</p>
+          <h2 className="text-xl font-black text-navy">{t('weatherShared.hourlyTitle')}</h2>
+          <p className="mt-1 text-sm text-slate-600">{t('weatherShared.hourlyBody')}</p>
         </div>
       </div>
-      <div className="mt-5 flex gap-3 overflow-x-auto pb-2" aria-label="Hourly forecast">
+      <div className="mt-5 flex gap-3 overflow-x-auto pb-2" aria-label={t('weatherShared.hourlyAria')}>
         {todayHours.map((hour) => {
           const WeatherIcon = getWeatherIcon(hour.weatherCode)
           const isHottest = hottest?.time === hour.time
@@ -38,7 +40,7 @@ export default function HourlyForecast({ hours, prefs }) {
               <p className="mt-3 text-lg font-black">{formatTemp(Math.round(hour.temperature), prefs.tempUnit)}</p>
               <p className="text-xs font-bold text-muted">Feels {formatTemp(Math.round(hour.apparentTemperature), prefs.tempUnit)}</p>
               {hour.uvIndex >= 6 && <p className="mt-2 rounded-full bg-white px-2 py-1 text-xs font-black text-danger">UV {Math.round(hour.uvIndex)}</p>}
-              {isHottest && <p className="mt-2 text-xs font-black text-ocean">Warmest</p>}
+              {isHottest && <p className="mt-2 text-xs font-black text-ocean">{t('weatherShared.warmest')}</p>}
             </article>
           )
         })}
