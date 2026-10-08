@@ -145,7 +145,7 @@ export default function Dashboard() {
         <HeatStatusCard status={heatStatus} forecast={forecast} climate={climate} climateError={climateError} />
       )}
 
-      <CurrentWeatherCard forecast={forecast} location={location} prefs={prefs} refreshing={refreshing} onRefresh={refresh} />
+      <CurrentWeatherCard forecast={forecast} location={location} prefs={prefs} refreshing={refreshing} onRefresh={refresh} heatStatus={heatStatus} sceneUnavailable={Boolean(error || isCached)} />
 
       {!prominentStatus && heatStatus && (
         <HeatStatusCard status={heatStatus} forecast={forecast} climate={climate} climateError={climateError} />

@@ -70,7 +70,7 @@ export default function SplashOnboarding({ onComplete, showOnboarding = true }) 
             <div className="relative z-10 mx-auto max-w-sm text-center">
               <motion.img
                 src={logo}
-                alt="HeatSafe Student logo"
+                alt="HeatSafe logo"
                 className="mx-auto h-28 w-28 rounded-[2rem] object-contain drop-shadow-sm"
                 animate={reduceMotion ? undefined : { scale: [1, 1.03, 1] }}
                 transition={{ duration: 3.2, repeat: Infinity }}
@@ -94,7 +94,7 @@ export default function SplashOnboarding({ onComplete, showOnboarding = true }) 
             transition={{ duration: reduceMotion ? 0 : 0.35 }}
           >
             <div className="flex items-center justify-between">
-              <img src={logo} alt="HeatSafe Student logo" className="h-12 w-12 rounded-2xl object-contain" />
+              <img src={logo} alt="HeatSafe logo" className="h-12 w-12 rounded-2xl object-contain" />
               <button className="rounded-full px-4 py-2 text-sm font-black text-muted" onClick={finish}>
                 Skip
               </button>

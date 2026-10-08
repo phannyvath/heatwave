@@ -74,7 +74,7 @@ export default function Layout() {
         <div className="flex items-center gap-3">
           <img
             src={logo}
-            alt="HeatSafe Student logo"
+            alt="HeatSafe logo"
             className="size-12 rounded-2xl object-contain"
           />
           <div>
@@ -107,7 +107,7 @@ export default function Layout() {
             <Menu className="size-5" />
           </button>
           <div className="flex min-w-0 items-center gap-2">
-            <img src={logo} alt="HeatSafe Student logo" className="size-9 rounded-xl object-contain lg:hidden" />
+            <img src={logo} alt="HeatSafe logo" className="size-16 shrink-0 rounded-xl object-contain lg:hidden" />
             <p className="truncate text-sm font-bold text-navy lg:hidden">{t('app.name')}</p>
             <p className="hidden text-sm font-medium text-slate-500 sm:block">
               {t('app.demoGuidance')}
@@ -144,8 +144,8 @@ export default function Layout() {
                 <div className="flex min-w-0 items-center gap-3">
                   <img
                     src={logo}
-                    alt="HeatSafe Student logo"
-                    className="size-10 rounded-xl object-contain"
+                    alt="HeatSafe logo"
+                    className="size-16 shrink-0 rounded-xl object-contain"
                   />
                   <p className="truncate text-lg font-black text-navy">{t('app.name')}</p>
                 </div>

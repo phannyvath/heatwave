@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react'
+import React, { lazy, Suspense, useCallback, useState } from 'react'
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import Layout from './components/Layout.jsx'
@@ -10,6 +10,8 @@ import TravelPlanner from './pages/TravelPlanner.jsx'
 import SafetyPlan from './pages/SafetyPlan.jsx'
 import Learn from './pages/Learn.jsx'
 import EmergencyHelp from './pages/EmergencyHelp.jsx'
+
+const WeatherPreview = import.meta.env.DEV ? lazy(() => import('./dev/WeatherPreview.jsx')) : null
 
 function PageTransition({ children }) {
   return (
@@ -29,6 +31,10 @@ export default function App() {
     setOnboardingComplete(true)
     setIntroSeen(true)
   }, [])
+
+  if (WeatherPreview && location.pathname === '/__dev/weather') {
+    return <Suspense fallback={<p className="p-6">Loading development preview…</p>}><WeatherPreview /></Suspense>
+  }
 
   if (!introSeen || !onboardingComplete) {
     return <SplashOnboarding showOnboarding={!onboardingComplete} onComplete={completeIntro} />

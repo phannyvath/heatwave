@@ -1,6 +1,6 @@
 {
   "app": {
-    "name": "HeatSafe Student",
+    "name": "HeatSafe",
     "tagline": "Melbourne heat support",
     "skip": "Skip to main content",
     "demoGuidance": "Demo guidance only. Weather information is not real-time."
@@ -168,7 +168,7 @@
     "healthdirectBody": "ऑस्ट्रेलिया में स्वास्थ्य सलाह के लिए 1800 022 222 पर कॉल करें।",
     "emergencyReminderBody": "भ्रम, गिरना, दौरे या बेहोशी चिकित्सा आपात स्थिति हो सकती है। Triple Zero (000) पर कॉल करें।",
     "notificationsBody": "वैकल्पिक ब्राउज़र सूचनाएँ केवल गर्म दिनों के लिए भेजी जाती हैं, और छह घंटों में एक बार से अधिक नहीं।",
-    "disclaimer": "HeatSafe Student सामान्य गर्मी-सुरक्षा मार्गदर्शन देता है और पेशेवर चिकित्सा सलाह या आधिकारिक आपात जानकारी की जगह नहीं लेता।",
+    "disclaimer": "HeatSafe सामान्य गर्मी-सुरक्षा मार्गदर्शन देता है और पेशेवर चिकित्सा सलाह या आधिकारिक आपात जानकारी की जगह नहीं लेता।",
     "notificationTitle": "आज अधिक गर्म दिन अपेक्षित है",
     "notificationBody": "आज {{temp}}{{difference}} तक पहुँच सकता है। ठंडे यात्रा समय पर विचार करें और पानी साथ रखें।",
     "warmerThanUsual": ", सामान्य से लगभग {{difference}}°C अधिक गर्म"
@@ -376,7 +376,7 @@
     "leavingCooler": "{{time}} के बाद निकलना लगभग {{difference}}°C ठंडा महसूस हो सकता है।",
     "warmestUpcoming": "आने वाला सबसे गर्म समय: {{time}}",
     "suggestedAt": "सुझाव: {{time}} पर {{temp}} महसूस",
-    "prototypeRules": "HeatSafe Student प्रोटोटाइप मार्गदर्शन नियमों का उपयोग करता है। यह Bureau of Meteorology की आधिकारिक हीटवेव वर्गीकरण नहीं है।",
+    "prototypeRules": "HeatSafe प्रोटोटाइप मार्गदर्शन नियमों का उपयोग करता है। यह Bureau of Meteorology की आधिकारिक हीटवेव वर्गीकरण नहीं है।",
     "officialLink": "ऑस्ट्रेलिया के आधिकारिक हीटवेव पूर्वानुमान और चेतावनियाँ देखें"
   },
   "location": {

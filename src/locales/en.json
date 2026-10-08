@@ -1,6 +1,6 @@
 {
   "app": {
-    "name": "HeatSafe Student",
+    "name": "HeatSafe",
     "tagline": "Melbourne heat support",
     "skip": "Skip to main content",
     "demoGuidance": "Demo guidance only. Weather information is not real-time."
@@ -164,7 +164,7 @@
     "notificationsBody": "Optional browser notifications are only sent for warmer days, and no more than once every six hours.",
     "enable": "Enable",
     "disable": "Disable",
-    "disclaimer": "HeatSafe Student provides general heat-safety guidance and does not replace professional medical advice or official emergency information.",
+    "disclaimer": "HeatSafe provides general heat-safety guidance and does not replace professional medical advice or official emergency information.",
     "notificationTitle": "A warmer day is expected",
     "notificationBody": "Today may reach {{temp}}{{difference}}. Consider a cooler travel time and carry water.",
     "warmerThanUsual": ", around {{difference}}°C warmer than usual",
@@ -374,7 +374,7 @@
     "officialLink": "Check official Australian heatwave forecasts and warnings",
     "officialWarnings": "Official warnings: Bureau of Meteorology",
     "averageUnavailable": "Local average is currently unavailable.",
-    "prototypeRules": "HeatSafe Student uses prototype guidance rules. This is not an official Bureau of Meteorology heatwave classification.",
+    "prototypeRules": "HeatSafe uses prototype guidance rules. This is not an official Bureau of Meteorology heatwave classification.",
     "coolingPlaces": "Nearby cool places",
     "safetyPlan": "Safety plan",
     "drinkWater": "Drink water regularly",

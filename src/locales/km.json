@@ -1,6 +1,6 @@
 {
   "app": {
-    "name": "HeatSafe Student",
+    "name": "HeatSafe",
     "tagline": "Melbourne heat support",
     "skip": "Skip to main content",
     "demoGuidance": "Demo guidance only. Weather information is not real-time."
@@ -363,7 +363,7 @@
     "leavingCooler": "ចេញដំណើរបន្ទាប់ពី {{time}} អាចមានអារម្មណ៍ត្រជាក់ជាងប្រហែល {{difference}}°C។",
     "warmestUpcoming": "ពេលក្តៅបំផុតខាងមុខ៖ {{time}}",
     "suggestedAt": "ណែនាំ៖ {{time}} នៅ {{temp}} មានអារម្មណ៍ថា",
-    "prototypeRules": "HeatSafe Student ប្រើច្បាប់ណែនាំសម្រាប់គំរូប៉ុណ្ណោះ។ នេះមិនមែនជាការចាត់ថ្នាក់រលកកម្ដៅផ្លូវការរបស់ Bureau of Meteorology ទេ។",
+    "prototypeRules": "HeatSafe ប្រើច្បាប់ណែនាំសម្រាប់គំរូប៉ុណ្ណោះ។ នេះមិនមែនជាការចាត់ថ្នាក់រលកកម្ដៅផ្លូវការរបស់ Bureau of Meteorology ទេ។",
     "officialLink": "ពិនិត្យព្យាករណ៍ និងការព្រមានរលកកម្ដៅផ្លូវការរបស់អូស្ត្រាលី"
   },
   "location": {

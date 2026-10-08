@@ -1,6 +1,6 @@
 {
   "app": {
-    "name": "HeatSafe Student",
+    "name": "HeatSafe",
     "tagline": "墨尔本高温支持",
     "skip": "跳到主要内容",
     "demoGuidance": "仅供演示参考。天气信息并非实时。"
@@ -171,7 +171,7 @@
     "healthdirectBody": "在澳大利亚可拨打 1800 022 222 获取健康建议。",
     "emergencyReminderBody": "意识混乱、倒下、抽搐或失去意识可能是医疗紧急情况。请拨打 000。",
     "notificationsBody": "可选浏览器通知只会在较热天气发送，并且六小时内最多一次。",
-    "disclaimer": "HeatSafe Student 提供一般高温安全建议，不能替代专业医疗建议或官方紧急信息。",
+    "disclaimer": "HeatSafe 提供一般高温安全建议，不能替代专业医疗建议或官方紧急信息。",
     "notificationTitle": "预计天气较热",
     "notificationBody": "今天最高可能达到 {{temp}}{{difference}}。请考虑选择较凉爽的出行时间并携带水。",
     "warmerThanUsual": "，比通常高约 {{difference}}°C"
@@ -379,7 +379,7 @@
     "leavingCooler": "{{time}} 后出发可能感觉凉爽约 {{difference}}°C。",
     "warmestUpcoming": "即将到来的最热时段：{{time}}",
     "suggestedAt": "建议：{{time}}，体感 {{temp}}",
-    "prototypeRules": "HeatSafe Student 使用原型指导规则。这不是澳大利亚气象局的官方热浪分类。",
+    "prototypeRules": "HeatSafe 使用原型指导规则。这不是澳大利亚气象局的官方热浪分类。",
     "officialLink": "查看澳大利亚官方热浪预报和警报"
   },
   "location": {

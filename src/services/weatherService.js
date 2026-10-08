@@ -4,7 +4,7 @@ export async function fetchForecast({ latitude, longitude, signal }) {
   const params = new URLSearchParams({
     latitude: latitude.toString(),
     longitude: longitude.toString(),
-    current: 'temperature_2m,apparent_temperature,relative_humidity_2m,weather_code,wind_speed_10m',
+    current: 'temperature_2m,apparent_temperature,relative_humidity_2m,weather_code,wind_speed_10m,is_day',
     hourly: 'temperature_2m,apparent_temperature,relative_humidity_2m,uv_index,weather_code',
     daily: 'temperature_2m_max,temperature_2m_min,apparent_temperature_max,uv_index_max,sunrise,sunset',
     timezone: 'auto',
@@ -48,6 +48,7 @@ export function normaliseForecast(data) {
       humidity: data.current.relative_humidity_2m,
       weatherCode: data.current.weather_code,
       windSpeed: data.current.wind_speed_10m,
+      isDay: data.current.is_day === 1 ? true : data.current.is_day === 0 ? false : null,
     },
     hourly,
     daily,
