@@ -171,3 +171,17 @@ textarea {
     padding-bottom: env(safe-area-inset-bottom);
   }
 }
+
+.journey-result {
+  scroll-margin-top: 7rem;
+  animation: journey-result-reveal 280ms ease-out both;
+}
+
+@keyframes journey-result-reveal {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .journey-result { animation: none; }
+}

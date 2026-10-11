@@ -1,13 +1,13 @@
-const FORECAST_BASE_URL = import.meta.env.VITE_OPEN_METEO_FORECAST_URL || 'https://api.open-meteo.com/v1/forecast'
+const FORECAST_BASE_URL = import.meta.env?.VITE_OPEN_METEO_FORECAST_URL || 'https://api.open-meteo.com/v1/forecast'
 
-export async function fetchForecast({ latitude, longitude, signal }) {
+export async function fetchForecast({ latitude, longitude, signal, timezone = 'auto' }) {
   const params = new URLSearchParams({
     latitude: latitude.toString(),
     longitude: longitude.toString(),
     current: 'temperature_2m,apparent_temperature,relative_humidity_2m,weather_code,wind_speed_10m,is_day',
     hourly: 'temperature_2m,apparent_temperature,relative_humidity_2m,uv_index,weather_code',
     daily: 'temperature_2m_max,temperature_2m_min,apparent_temperature_max,uv_index_max,sunrise,sunset',
-    timezone: 'auto',
+    timezone,
     forecast_days: '7',
     temperature_unit: 'celsius',
     wind_speed_unit: 'kmh',

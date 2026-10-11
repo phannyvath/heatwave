@@ -450,5 +450,57 @@
       "label": "Living alone",
       "text": "Share your plan with a trusted friend and set a check-in time during the hottest part of the day."
     }
+  },
+  "journey": {
+    "checking": "Checking your journey…",
+    "checked": "Journey checked",
+    "changed": "Journey changed — check heat risk again",
+    "headings": {
+      "comfortable": "Low heat risk for this journey.",
+      "warm": "Moderate heat risk for this journey.",
+      "hot": "High heat risk for this journey.",
+      "very-hot": "Very high heat risk for this journey."
+    },
+    "unavailable": "Heat risk could not be checked.",
+    "noWeather": "Weather data is unavailable for one or both journey locations at this departure. Please check again shortly.",
+    "explanation": "For your {{time}} departure on {{date}}, the hourly forecast feels like {{temperature}} with UV {{uv}}.",
+    "recommended": "Recommended departure: {{time}}",
+    "useTime": "Use this departure time",
+    "sameTime": "Your selected departure is already the best available option.",
+    "comparison": "Best available option for both endpoints at or after departure, before 9 PM on the same day; it may still be hot.",
+    "source": "{{provider}} forecast for {{location}} · {{timezone}}. This estimate uses departure-hour weather, not conditions along the entire route.",
+    "cached": "Previously downloaded forecast · updated {{time}}",
+    "live": "Forecast updated {{time}}",
+    "nextDeparture": "Next occurrence of this time in {{timezone}}.",
+    "priority": "Next priorities",
+    "unavailableRecommendation": "A departure recommendation needs weather data.",
+    "general": "General journey preparations",
+    "dateUnknown": "your selected location"
+  },
+  "places": {
+    "placeholder": "Search suburb, address or place",
+    "hint": "Search Australia, with Melbourne and Victoria prioritised. Choose a matching location.",
+    "selected": "Location selected. Editing the text requires a new selection.",
+    "loading": "Searching locations…",
+    "empty": "No matching locations. Try a longer name, street address or suburb.",
+    "unavailable": "Location search is temporarily unavailable. Please try again.",
+    "configuration": "Location search is temporarily unavailable. Please try again.",
+    "rateLimit": "Location search is temporarily rate-limited. Please wait before trying again.",
+    "idle": "Start typing to search.",
+    "retry": "Try again",
+    "count_one": "{{count}} suggestion available. Use arrow keys and Enter to select.",
+    "count_other": "{{count}} suggestions available. Use arrow keys and Enter to select.",
+    "required": "Choose both starting location and destination from the search suggestions before checking heat risk.",
+    "duration": "Your expected travel duration (minutes, optional)",
+    "durationPlaceholder": "Enter expected minutes",
+    "methodPlaceholder": "Enter your transport method",
+    "durationHelp": "Your own estimate. No routing service is connected; we do not calculate travel or arrival times.",
+    "originTimezone": "the starting location’s local time",
+    "scope": "Checks weather at your selected starting location and destination at departure time. It does not assess the whole route or arrival conditions.",
+    "explanation": "For departure at {{time}} on {{date}}, {{start}} feels like {{originTemp}} (UV {{originUv}}) and {{destination}} feels like {{destinationTemp}} (UV {{destinationUv}}).",
+    "source": "Open-Meteo forecasts at both endpoints at the same instant; the higher endpoint risk is shown. Times use {{timezone}}. Route and arrival conditions are not assessed.",
+    "minutes_one": "{{count}} minute (your estimate)",
+    "minutes_other": "{{count}} minutes (your estimate)",
+    "notEntered": "Not entered"
   }
 }
