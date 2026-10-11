@@ -5,6 +5,7 @@ import Card from '../components/Card.jsx'
 import Button from '../components/Button.jsx'
 import { getHeatStatus } from '../utils/heatRisk.js'
 import { makePreviewForecast, previewStates } from './weatherFixtures.js'
+import { sceneLocations } from './sceneLocations.js'
 import { sceneAssets } from '../components/weather/sceneAssets.js'
 import { getWeatherScene } from '../utils/weatherScene.js'
 
@@ -38,6 +39,7 @@ export default function WeatherPreview() {
           </select>
         </label>
         <p className="text-xs">Use your system or browser’s reduced-motion setting for the static version. Loading and error examples retain neutral surfaces.</p>
+        <p className="text-sm">Melbourne-inspired setting: {sceneLocations[scene.artwork] || 'No location illustration'}</p>
         <p className="text-sm font-bold">Selected asset: {scene.artwork ? `${scene.artwork}.jpg` : 'Neutral surface (no inferred weather)'}</p>
         <p className="text-xs">Night fog and snow use the cloudy-night landscape with mist or snow. Storm uses its deep-purple artwork both day and night. Heat styling follows the existing classification; rain, storms, fog, snow and overcast take priority.</p>
         <a className="inline-block font-bold underline" href="/">Back to live dashboard</a>
@@ -62,8 +64,8 @@ export default function WeatherPreview() {
         <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {Object.entries(sceneAssets).map(([name, src]) => (
             <figure key={name}>
-              <img src={src} alt={`${name} original LOFI landscape`} loading="lazy" className="aspect-[3/2] w-full rounded-xl object-cover" />
-              <figcaption className="mt-2 text-sm font-bold">{name}.jpg</figcaption>
+              <img src={src} alt={`${sceneLocations[name]} — ${name} LOFI illustration`} loading="lazy" className="aspect-[3/2] w-full rounded-xl object-cover" />
+              <figcaption className="mt-2 text-sm font-bold">{sceneLocations[name]}<span className="block text-xs font-normal">{name}.jpg</span></figcaption>
             </figure>
           ))}
         </div>

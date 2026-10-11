@@ -1,6 +1,6 @@
 # Distinct LOFI weather scenes
 
-The existing dashboard weather card now uses **12 separately generated illustrations**. There is no shared landscape recoloured with filters. The old `melbourne-weather.jpg` is no longer imported by the application. Each image has its own landscape composition, foreground details, lighting and atmosphere; the palette, painterly texture and Australian countryside setting unify the collection.
+The existing dashboard weather card now uses **12 separately generated illustrations**. There is no shared landscape recoloured with filters. The old `melbourne-weather.jpg` is no longer imported by the application. Each image has its own landscape composition, foreground details, lighting and atmosphere; the palette, painterly texture and Melbourne-inspired setting unify the collection.
 
 ## Assets and selection
 
@@ -34,7 +34,7 @@ Documented combined-condition fallbacks:
 
 ## Rendering and performance
 
-Each scene is a separate 1280 px JPEG (approximately 261–406 KiB). Production initially downloads only the selected scene; URL imports do not fetch all images. The next image is decoded before its 1.2-second opacity crossfade begins. At most two scene layers are retained, then the outgoing layer is removed. Interrupted loads are ignored. Asset-load failures retain a neutral CSS surface and readable content. No animation/rendering dependency was added.
+Each scene is a separate 1280 px JPEG (approximately 327–489 KiB). Production initially downloads only the selected scene; URL imports do not fetch all images. The next image is decoded before its 1.2-second opacity crossfade begins. At most two scene layers are retained, then the outgoing layer is removed. Interrupted loads are ignored. Asset-load failures retain a neutral CSS surface and readable content. No animation/rendering dependency was added.
 
 Animations use lightweight CSS opacity/transform effects and a small number of SVG clouds/particles. All layers are behind real interface text and controls, `aria-hidden`, non-focusable and `pointer-events: none`. Reduced motion removes animations, crossfades and shimmer. Weather values, greeting, location, source, update time, Refresh and six metrics remain real UI. Night and storm scenes use cream summary text with a dark protective backdrop; all metrics retain translucent cream surfaces and dark labels. The logo and navigation remain unchanged.
 
@@ -55,10 +55,17 @@ Generated with the built-in imagegen tool, one independent generation per scene.
 - `PLAYWRIGHT_PATH=/path/to/playwright node tests/weather-browser.mjs`: separate browser context, 320/390/768/1440 px viewport checks over 16 condition combinations; image loading, no colour filters, six metrics, overflow, motion/reduced motion, plus real Dashboard Refresh/loading/cached failure/uncached retry/navigation with isolated mocked provider responses.
 - Optional environment variables: `WEATHER_TEST_URL` (default http://127.0.0.1:5175), `CHROME_PATH`, `WEATHER_TEST_ARTIFACTS`.
 
-Limitations: illustrations are atmospheric countryside artwork, not exact live views of selected locations. Snow/fog at night and storms use the documented fallbacks above. Browser checks simulate devices and provider responses; they do not constitute testing on physical phones. The pre-existing production JavaScript chunk-size warning remains.
+Limitations: illustrations are atmospheric Melbourne-inspired artwork, not exact live views of selected locations. Snow/fog at night and storms use the documented fallbacks above. Browser checks simulate devices and provider responses; they do not constitute testing on physical phones. The pre-existing production JavaScript chunk-size warning remains.
 
 ### Completed checks
 
 All five Node test groups, ESLint and the production build passed. The browser checks passed across 64 viewport/condition combinations. The asset lifecycle check confirmed one initial artwork download, a decoded-image 1.2-second crossfade, outgoing-layer cleanup, instantaneous reduced-motion replacement, and a neutral missing-image fallback that preserves Refresh and metrics. The production bundle contains neither the preview route/gallery nor the former shared landscape reference.
 
-Rendered-pixel contrast checks sampled backgrounds beneath every text range for 16 states at 390 and 1440 px with motion disabled. A protective timestamp surface was added after the rainy/hot mobile scenes exposed weak contrast. The final lowest sampled ratio was 5.81:1. These are representative rendered checks, not a full accessibility certification.
+Rendered-pixel contrast checks sampled backgrounds beneath every text range for 16 states at 390 and 1440 px with motion disabled. A protective timestamp surface was added after the rainy/hot mobile scenes exposed weak contrast. The final lowest sampled ratio was 5.85:1 after the Melbourne artwork refresh. These are representative rendered checks, not a full accessibility certification.
+
+
+## Melbourne location refresh
+
+All 12 JPEG assets were regenerated as different Melbourne-inspired places. Sunny: Yarra/Birrarung Marr; partly cloudy: Brighton bathing boxes; overcast: Carlton Gardens; rainy: Fitzroy tram street; storm: Docklands/Bolte Bridge; fog: Royal Botanic Gardens; clear night: Southbank/Princes Bridge; cloudy night: St Kilda Pier; rainy night: Degraves Street-inspired laneway; hot: Albert Park Lake; hot night: Lygon Street; snow: an imagined Dandenong Ranges winter railway.
+
+The development gallery labels each location. These are original artistic interpretations, not exact photographs or live views. The snow illustration is deliberately imagined. Locations vary by weather scene; refresh does not randomise the actual weather or select an unrelated weather condition. Weather mapping and existing animation logic remain unchanged. Updated generation prompts are in weather-artwork-prompts.json.
