@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 import Card from '../components/Card.jsx'
 import Badge from '../components/Badge.jsx'
 import Button from '../components/Button.jsx'
+import MapsDirectionsLink from '../components/MapsDirectionsLink.jsx'
 import CoolingMap from '../components/map/CoolingMap.jsx'
 import { useDepartureReminders } from '../context/DepartureReminders.jsx'
 import { createDemoPlan } from '../data/demoDirections.js'
@@ -60,6 +61,7 @@ function PlaceCard({ place, selected, saved, distanceText, onSelect, onSave, onD
           {t('actions.getDirections')}
         </Button>
       </div>
+      <div className="mt-3"><MapsDirectionsLink destination={place} method="WALK" showNote={false} className="w-full" /></div>
     </Card>
   )
 }

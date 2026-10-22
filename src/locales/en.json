@@ -66,6 +66,14 @@
     "low": "Low {{temp}}",
     "hottestExpected": "Hottest expected: {{time}}",
     "scale": "Heat-risk scale",
+    "scaleDescription": "Feels-like temperature ranges (°C)",
+    "scaleNote": "These temperature ranges are used for travel recommendations. The overall heat-risk rating can also be raised by daily highs, overnight lows or UV levels.",
+    "temperatureRanges": {
+      "comfortable": "Below 32°C",
+      "warm": "32°C to below 38°C",
+      "hot": "38°C to below 42°C",
+      "very-hot": "42°C and above"
+    },
     "current": "Current",
     "personalCircumstances": "Personal circumstances",
     "selectCircumstances": "Select one or more circumstances to see personalised safety suggestions.",

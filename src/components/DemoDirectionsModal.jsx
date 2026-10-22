@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom'
 import { Bike, Car, Footprints, MapPin, Train, X } from 'lucide-react'
 import { CircleMarker, ImageOverlay, MapContainer, Polyline, TileLayer, Tooltip, useMap } from 'react-leaflet'
 import Button from './Button.jsx'
+import MapsDirectionsLink from './MapsDirectionsLink.jsx'
 import { demoMapBounds, demoRoute, demoTravelModes } from '../data/demoDirections.js'
 
 const icons = { walking: Footprints, transit: Train, driving: Car, cycling: Bike }
@@ -110,6 +111,7 @@ export default function DemoDirectionsModal({ destination, plan, departureTime, 
             </button>
           })}
         </div>
+        <MapsDirectionsLink start={plan?.places.start} destination={destination} method={{ walking: 'WALK', transit: 'TRANSIT', driving: 'DRIVE', cycling: 'BICYCLE' }[mode]} />
         <DemoMap destination={destination.name} mode={mode} />
         <section aria-live="polite" aria-atomic="true" className="rounded-2xl border border-orange-200 bg-white p-4">
           <h3 className="flex items-center gap-2 text-lg font-extrabold"><MapPin aria-hidden="true" size={22} />Sample journey · {selected.label}</h3>

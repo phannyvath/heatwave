@@ -5,6 +5,7 @@ import AccessibleModal from '../components/AccessibleModal.jsx'
 import Button from '../components/Button.jsx'
 import DemoDirectionsModal from '../components/DemoDirectionsModal.jsx'
 import TravelRecommendationModal from '../components/TravelRecommendationModal.jsx'
+import ForecastRecommendationModal from '../components/ForecastRecommendationModal.jsx'
 
 const STORAGE_KEY = 'heatsafe-departure-reminders-v1'
 const Context = createContext(null)
@@ -64,14 +65,14 @@ export function DepartureRemindersProvider({ children }) {
     try {
       commit({ plans: [...current.plans.filter(p => p.id !== plan.id), plan], reminders: [...current.reminders, { id: crypto.randomUUID(), plan, departure, status: 'active', notificationsEnabled: true }] })
       setOverlay(null)
-      setToast(plan.recommendation ? 'Departure reminder added to your notifications.' : 'Departure time saved. Manage your reminder in the bell.')
+      setToast('Departure reminder added.')
       return ''
     } catch { return 'Unable to save this reminder. Please enable local storage and try again.' }
   }
   const deleteReminder = id => {
     try {
       commit({ ...storeRef.current, reminders: storeRef.current.reminders.filter(r => r.id !== id) })
-      setToast('Departure reminder deleted')
+      setToast('Departure reminder cancelled')
     } catch { setToast('Unable to delete this reminder. Please try again.') }
   }
   const toggleNotifications = id => {
@@ -86,7 +87,7 @@ export function DepartureRemindersProvider({ children }) {
     try { commit({ ...current, reminders: current.reminders.map(r => r.id === id ? { ...r, notificationsEnabled: enabled } : r) }) }
     catch { setToast('Unable to save notification settings. Please try again.') }
   }
-  const value = { reminders: store.reminders, upcomingCount: store.reminders.filter(r => r.notificationsEnabled && r.status === 'active' && r.departure > now).length, latestPlan: store.plans.at(-1), now, savePlan, deleteReminder, toggleNotifications, viewPlan: (plan, departure) => setOverlay({ type: 'plan', plan, departure }) }
+  const value = { reminders: store.reminders, upcomingCount: store.reminders.filter(r => r.notificationsEnabled && r.status === 'active' && r.departure > now).length, latestPlan: store.plans.at(-1), now, savePlan, deleteReminder, toggleNotifications, viewPlan: (plan, departure, onTimeChange) => setOverlay({ type: 'plan', plan, departure, onTimeChange }) }
   return <Context.Provider value={value}>
     {children}
     {overlay?.type === 'due' && <AccessibleModal title={`Time to leave for ${overlay.reminder.plan.places.destination.name}`} onClose={() => setOverlay(null)}>
@@ -94,7 +95,7 @@ export function DepartureRemindersProvider({ children }) {
       <p>{modes[overlay.reminder.plan.form.method]} · {localDate(overlay.reminder.departure)}</p>
       <div className="flex flex-wrap gap-3"><Button onClick={() => setOverlay({ type: 'plan', plan: overlay.reminder.plan, departure: overlay.reminder.departure })}>View travel plan</Button><Button variant="ghost" onClick={() => setOverlay(null)}>Dismiss</Button></div>
     </AccessibleModal>}
-    {overlay?.type === 'plan' && (overlay.plan.recommendation ? <TravelRecommendationModal plan={overlay.plan} onClose={() => setOverlay(null)} onSave={addReminder} /> : <DemoDirectionsModal plan={overlay.plan} destination={overlay.plan.places.destination} departureTime={overlay.departure} onClose={() => setOverlay(null)} onSave={addReminder} />)}
+    {overlay?.type === 'plan' && (overlay.plan.weatherRecommendation ? <ForecastRecommendationModal plan={overlay.plan} onClose={() => setOverlay(null)} onSave={addReminder} onTimeChange={overlay.onTimeChange} /> : overlay.plan.recommendation ? <TravelRecommendationModal plan={overlay.plan} onClose={() => setOverlay(null)} onSave={addReminder} /> : <DemoDirectionsModal plan={overlay.plan} destination={overlay.plan.places.destination} departureTime={overlay.departure} onClose={() => setOverlay(null)} onSave={addReminder} />)}
     {toast && createPortal(<p role="status" className="reminder-toast">{toast}</p>, document.body)}
   </Context.Provider>
 }
@@ -139,9 +140,9 @@ export function NotificationBell() {
         <button type="button" role="switch" aria-checked={reminder.notificationsEnabled} aria-label={`Notifications for ${reminder.plan.places.destination.name}`} onClick={() => toggleNotifications(reminder.id)} className="notification-switch mt-3">
           <span>Notifications</span><span className={`notification-switch-track ${reminder.notificationsEnabled ? 'enabled' : ''}`} aria-hidden="true"><span /></span><span aria-hidden="true">{reminder.notificationsEnabled ? 'On' : 'Off'}</span>
         </button>
-        <div className="mt-3 flex flex-wrap gap-2"><Button variant="ghost" onClick={() => { setOpen(false); buttonRef.current?.focus(); viewPlan(reminder.plan, reminder.departure) }}>View travel plan</Button><Button variant="ghost" onClick={() => { deleteReminder(reminder.id); popoverRef.current?.querySelector('button')?.focus({ preventScroll: true }) }}>Delete reminder</Button></div>
+        <div className="mt-3 flex flex-wrap gap-2"><Button variant="ghost" onClick={() => { setOpen(false); buttonRef.current?.focus(); viewPlan(reminder.plan, reminder.departure) }}>View travel plan</Button><Button variant="ghost" onClick={() => { deleteReminder(reminder.id); popoverRef.current?.querySelector('button')?.focus({ preventScroll: true }) }}>Cancel reminder</Button></div>
       </li>)}</ul>}
-      <p className="mt-4 text-sm text-muted">Demo notifications appear while HeatSafe is open.</p>
+      <p className="mt-4 text-sm text-muted">In-app demo reminders appear only while HeatSafe is open. Device and background notifications are not enabled.</p>
     </div>, document.body)}
   </>
 }

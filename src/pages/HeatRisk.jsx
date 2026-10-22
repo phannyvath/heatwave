@@ -266,6 +266,7 @@ export default function HeatRisk() {
 
       <Card className="p-5">
         <h2 className="text-lg font-black text-navy">{t('heatRisk.scale')}</h2>
+        <p className="mt-2 text-base font-semibold text-muted">{t('heatRisk.scaleDescription')}</p>
         <div className="mt-4 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
           {Object.entries(heatRiskContent).map(([key, risk]) => {
             const active = key === currentRisk
@@ -280,11 +281,13 @@ export default function HeatRisk() {
                   <p className="font-black text-navy">{t(`heatRisk.status.${key}`)}</p>
                   {active && <span className="rounded-full bg-white px-2 py-1 text-xs font-black text-ocean">{t('heatRisk.current')}</span>}
                 </div>
+                <p className="mt-3 text-lg font-extrabold text-navy">{t(`heatRisk.temperatureRanges.${key}`)}</p>
                 <p className="mt-1 text-sm text-slate-600">{t(`heatRisk.message.${key}`)}</p>
               </div>
             )
           })}
         </div>
+        <p className="mt-4 text-sm leading-6 text-muted">{t('heatRisk.scaleNote')}</p>
       </Card>
 
       <Card className="p-5">

@@ -1,10 +1,14 @@
-import { useTranslation } from 'react-i18next'
+import { ExternalLink } from 'lucide-react'
+import Button from './Button.jsx'
+import { googleMapsDirectionsUrl } from '../utils/googleMapsDirections.js'
 
-export default function MapsDirectionsLink({ start, destination, method }) {
-  const { t } = useTranslation()
-  const params = new URLSearchParams({ api: '1', origin: `${start.latitude},${start.longitude}`, destination: `${destination.latitude},${destination.longitude}`, travelmode: { TRANSIT: 'transit', DRIVE: 'driving', WALK: 'walking', BICYCLE: 'bicycling' }[method] })
+export default function MapsDirectionsLink({ start, destination, method, showNote = true, className = '' }) {
+  const href = googleMapsDirectionsUrl({ start, destination, method })
+  if (!href) return null
   return <div className="space-y-2">
-    <a className="text-sm font-bold underline" href={`https://www.google.com/maps/dir/?${params}`} target="_blank" rel="noreferrer">{t('routePlanner.openMaps')}</a>
-    <p className="text-xs">{t('routePlanner.mapsNote')}</p>
+    <Button as="a" variant="ghost" className={`text-base ${className}`} href={href} target="_blank" rel="noopener noreferrer" aria-label={`Open in Google Maps: ${destination.name || destination.displayName} (opens in a new tab)`}>
+      <ExternalLink size={20} aria-hidden="true" />Open in Google Maps
+    </Button>
+    {showNote && <p className="text-sm text-muted">{destination.demo ? 'This is a demo cooling location. Google Maps opens its map coordinates; the named venue is not verified.' : 'Opens Google Maps for route options and travel times. Set your preferred departure time there.'}</p>}
   </div>
 }
