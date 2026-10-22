@@ -3,7 +3,7 @@
 import assert from 'node:assert/strict'
 import { createServer } from 'vite'
 const { chromium } = await import(process.env.PLAYWRIGHT_MODULE || 'playwright')
-const browser = await chromium.launch({ headless: true })
+const browser = await chromium.launch({ headless: true, ...(process.env.PLAYWRIGHT_EXECUTABLE_PATH ? { executablePath: process.env.PLAYWRIGHT_EXECUTABLE_PATH } : {}) })
 const server = await createServer({ server: { host: '127.0.0.1', port: 5187, strictPort: true }, define: { 'import.meta.env.VITE_GEOAPIFY_API_KEY': JSON.stringify('test-fixture-not-a-real-key') } })
 await server.listen()
 const missingServer = await createServer({ server: { host: '127.0.0.1', port: 5188, strictPort: true }, define: { 'import.meta.env.VITE_GEOAPIFY_API_KEY': JSON.stringify('') } })
@@ -30,15 +30,17 @@ async function open(mode, mobile = false) {
   await page.route('https://api.open-meteo.com/**', async (route) => {
     const params = new URL(route.request().url()).searchParams
     weatherCoordinates.push([params.get('latitude'), params.get('longitude')])
-    const times = Array.from({ length: 4 * 24 }, (_, i) => {
-      const date = new Date(Date.now() + Math.floor(i / 24) * 86400000)
-      const day = new Intl.DateTimeFormat('en-CA', { timeZone: 'Australia/Melbourne', year: 'numeric', month: '2-digit', day: '2-digit' }).format(date)
-      return `${day}T${String(i % 24).padStart(2, '0')}:00`
-    })
+    const times = Array.from({ length: 96 }, (_, i) => Math.floor(Date.now() / 3600000) * 3600 + i * 3600)
     const values = (n) => times.map(() => n)
     return route.fulfill({ json: { timezone: 'Australia/Melbourne', current: { time: times[0] }, daily: { time: [] }, hourly: {
       time: times, temperature_2m: values(25), apparent_temperature: values(25), relative_humidity_2m: values(50), uv_index: values(2), weather_code: values(0),
     } } })
+  })
+  await page.route('**/api/journey-routes', async (route) => {
+    const { departure, offsets, mode: travelMode } = route.request().postDataJSON()
+    assert.equal(travelMode, 'TRANSIT')
+    if (mode === 'routingUnavailable') return route.fulfill({ status: 503, json: { error: 'configuration' } })
+    return route.fulfill({ json: { results: offsets.map((offset) => ({ departure: departure + offset * 60000, arrival: departure + (offset + 30) * 60000, durationMinutes: 30, outdoorMinutes: 10, services: [], instructions: ['Take the fixture train.'], warnings: [] })) } })
   })
   await page.goto(mode === 'configuration' ? url.replace('5187', '5188') : url)
   const start = page.getByRole('combobox', { name: 'Starting location' })
@@ -83,10 +85,32 @@ try {
     await page.getByRole('option').first().waitFor()
     await start.press('ArrowDown'); await start.press('Enter')
     await page.getByRole('button', { name: 'Check heat risk', exact: true }).click()
-    await page.getByRole('heading', { name: 'Low heat risk for this journey.' }).waitFor()
+    await page.getByRole('heading', { name: 'Lower forecast heat exposure.' }).waitFor()
     assert.deepEqual(weatherCoordinates, [['-37.8', '145'], ['-37.9', '145.1']], 'both selected coordinates reach weather service')
+    await page.getByRole('table').waitFor()
+    await page.getByText('Estimated route directions', { exact: true }).click()
+    await page.getByText('Take the fixture train.', { exact: true }).waitFor()
+    assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), 'results fit narrow viewport')
+    await page.screenshot({ path: `/tmp/heatsafe-routing-${mobile ? 'mobile' : 'desktop'}.png`, fullPage: true })
+    await page.getByLabel('Transport method').selectOption('WALK')
+    await page.getByText('Journey changed — check heat risk again', { exact: true }).last().waitFor()
     await context.close()
     console.log(`${mobile ? 'Mobile touch' : 'Desktop keyboard'}: both fields, layout, selection, Escape, changed-input validation, and coordinates passed.`)
+  }
+  {
+    const { context, page, start, destination } = await open('routingUnavailable')
+    for (const [field, text] of [[start, 'haw'], [destination, 'swi']]) {
+      await field.fill(text)
+      await page.getByRole('option').first().waitFor()
+      await field.press('ArrowDown'); await field.press('Enter')
+    }
+    await page.getByLabel(/^Departure time/).fill('13:30')
+    await page.getByRole('button', { name: 'Check heat risk', exact: true }).click()
+    await page.getByText('Journey routing is not configured yet. Please try again once the service is available.', { exact: true }).waitFor()
+    assert.equal(await page.getByRole('table').count(), 0)
+    assert.equal(await page.getByRole('link', { name: 'Open directions in Google Maps' }).count(), 1)
+    await context.close()
+    console.log('Missing routing configuration: no fabricated recommendation; external directions available.')
   }
   for (const mode of ['configuration', 'empty', 'credentials', 'rateLimit', 'network']) {
     const { context, page, start, destination } = await open(mode)

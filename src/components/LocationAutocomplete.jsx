@@ -3,7 +3,7 @@ import { CheckCircle2, LoaderCircle, MapPin } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { searchJourneyPlaces } from '../services/placesService.js'
 
-export default function LocationAutocomplete({ label, value, selection, onChange, onSelect, disabled, invalid, helperId }) {
+export default function LocationAutocomplete({ label, value, selection, onChange, onSelect, disabled, invalid, helperId, required = true }) {
   const { t } = useTranslation()
   const id = useId()
   const [open, setOpen] = useState(false)
@@ -64,7 +64,7 @@ export default function LocationAutocomplete({ label, value, selection, onChange
       <label htmlFor={id} className="text-sm font-bold text-navy">{label}</label>
       <div className="relative mt-2">
         <MapPin className="pointer-events-none absolute left-3 top-3.5 size-5 text-muted" aria-hidden="true" />
-        <input id={id} role="combobox" autoComplete="off" spellCheck={false} required disabled={disabled}
+        <input id={id} role="combobox" autoComplete="off" spellCheck={false} required={required} disabled={disabled}
           aria-autocomplete="list" aria-expanded={expanded} aria-controls={expanded ? `${id}-list` : undefined}
           aria-activedescendant={expanded && active >= 0 && options[active] ? `${id}-option-${active}` : undefined}
           aria-describedby={selection ? `${id}-help` : helperId} aria-invalid={invalid || undefined}

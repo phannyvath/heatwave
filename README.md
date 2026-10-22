@@ -23,15 +23,11 @@ Implementation follows the [Geoapify autocomplete API](https://apidocs.geoapify.
 - Dropdowns show provider names and supporting addresses with Geoapify/OpenStreetMap attribution. Selecting stores `{ provider, placeId, displayName, name, address, latitude, longitude, state, timezone }` in form state. Editing the text immediately invalidates that selection. Selections are not persisted after leaving the page.
 - Arrow keys navigate, Enter selects, Escape dismisses, and Tab leaves the field. Loading, no matches, service/rate-limit errors are announced. On touch screens, rows are tappable and the dropdown scrolls.
 
-## Weather assessment and duration
+## Route-aware weather assessment
 
-On **Check heat risk**, fresh forecasts are requested using the two selected coordinates. The destination request uses the origin forecast's timezone, so both endpoints are compared at the same instant, even across Australian timezones. The selected time means its next occurrence in the origin's timezone; an hourly forecast is used for that departure hour.
+Travel Planner combines **Geoapify routing** with **Open-Meteo** forecasts using the existing `VITE_GEOAPIFY_API_KEY`. No Google API key or billing setup is required. It assesses endpoint weather through estimated arrival and compares departure with options one and two hours later. Route duration is an estimate reused across these weather comparisons, not a departure-specific timetable or live traffic prediction.
 
-The existing heat-risk thresholds are applied to the two endpoints; the higher risk determines the result. One recommendation minimises the combined endpoint risk, then maximum apparent temperature, among the selected departure and later forecast hours before 9 PM on the same day. Equal candidates keep the earlier departure. If either endpoint's required forecast is missing, the result is unavailable; there is no silent partial assessment, Hawthorn fallback or synthetic weather.
-
-This is **endpoint weather at departure**, not a route, transfer, exposure or arrival assessment. The UI explicitly says so. Duration is an optional, positive whole number of minutes supplied by the user. There is no routing service, fixed 42-minute journey, or driving-time substitute for public transport. Initial journey fields are empty.
-
-Open-Meteo's public endpoint requires no API key for non-commercial use; check its [current terms and commercial options](https://open-meteo.com/en/terms) before a commercial deployment. Search text is sent to Geoapify; selected coordinates are sent to Open-Meteo. The app does not log keys, search queries or location selections.
+Results show estimated route directions, arrival conditions and why a later time is suggested. Unsupported transit routes get a free external Google Maps directions link, without fabricated travel times. The source deployment includes a routing API function; a static-only upload cannot run it. See [routing setup and comparison rules](docs/journey-routing.md).
 
 ## Validation
 

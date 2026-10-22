@@ -502,5 +502,57 @@
     "minutes_one": "{{count}} minute (your estimate)",
     "minutes_other": "{{count}} minutes (your estimate)",
     "notEntered": "Not entered"
+  },
+  "routePlanner": {
+    "modes": {
+      "TRANSIT": "Public transport",
+      "WALK": "Walking",
+      "BICYCLE": "Cycling",
+      "DRIVE": "Driving"
+    },
+    "headings": {
+      "comfortable": "Lower forecast heat exposure.",
+      "warm": "Warm forecast conditions.",
+      "hot": "Hot forecast conditions.",
+      "very-hot": "Very hot forecast conditions."
+    },
+    "scope": "Uses Geoapify route estimates and Open-Meteo forecasts. Compares weather for your departure and options one and two hours later, before 9 pm. The same estimated travel duration is used for each option.",
+    "explanation": "Leaving {{start}} at {{time}} on {{date}} feels like {{originTemp}} (UV {{originUv}}). At the estimated arrival in {{destination}}, it feels like {{destinationTemp}} (UV {{destinationUv}}).",
+    "source": "Open-Meteo endpoint forecasts across the journey window; Geoapify route estimates. All times use {{timezone}}. This is a planning estimate, not a personal health assessment. Route weather, shade and vehicle cooling are unknown.",
+    "comparisonTitle": "Journey comparison",
+    "option": "Measure",
+    "selected": "Your departure",
+    "suggested": "Suggested departure",
+    "departure": "Departure",
+    "arrival": "Estimated arrival",
+    "duration": "Journey duration",
+    "peak": "Peak feels-like at endpoints",
+    "uv": "Peak UV at endpoints",
+    "outdoors": "Estimated outdoor time",
+    "unknown": "Unknown",
+    "minutes": "{{count}} min",
+    "coverage": "{{checked}} of {{total}} requested departure options had both route and forecast data. Unavailable options are excluded.",
+    "exposureNote": "Walking and cycling count the estimated journey as outdoors. Public transport waiting, shelter and driving exposure are unknown; no outdoor-time estimate is shown for these modes.",
+    "services": "Services for the suggested departure",
+    "openMaps": "Open directions in Google Maps",
+    "mapsNote": "Opens a fresh directions search in Google Maps without an API key. Set your departure time there to check services; those schedules are not imported into this planner.",
+    "routeWarning": "Walking and cycling routes may omit clear paths, sidewalks or cycle paths. Check the route before travelling.",
+    "reasons": {
+      "same": "No meaningful improvement was found among the available options checked. This does not mean conditions are safe.",
+      "risk": "This is the earliest checked option with a lower forecast heat category, without worse peak UV or substantially longer travel or outdoor time.",
+      "cooler": "This is the earliest checked option at least 2°C cooler at the endpoint peak, without worse UV or substantially longer travel or outdoor time.",
+      "uv": "This is the earliest checked option with peak UV at least 2 points lower, without hotter conditions or substantially longer travel or outdoor time.",
+      "outdoors": "This is the earliest checked transit option with at least 10 fewer estimated outdoor minutes, without hotter conditions or worse UV."
+    },
+    "errors": {
+      "routesConfiguration": "Journey routing is not configured yet. Please try again once the service is available.",
+      "routesUnavailable": "Route information is temporarily unavailable. Please try again.",
+      "noRoute": "No supported route was found for this method. Try another method, or check public transport directions in Google Maps below.",
+      "invalidTime": "This departure time is not available in the starting location’s timezone. Please choose another time.",
+      "weatherUnavailable": "Complete forecast data through arrival is unavailable. No recommendation can be made."
+    },
+    "estimateNote": "Route duration is an estimate, not a departure-specific timetable or live traffic prediction. Transit waiting and service availability at your chosen time are not verified. Confirm schedules in Google Maps before travelling.",
+    "directions": "Estimated route directions",
+    "attribution": "Routing by"
   }
 }

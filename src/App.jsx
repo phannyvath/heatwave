@@ -2,6 +2,7 @@ import React, { lazy, Suspense, useCallback, useState } from 'react'
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import Layout from './components/Layout.jsx'
+import { DepartureRemindersProvider } from './context/DepartureReminders.jsx'
 import SplashOnboarding from './components/SplashOnboarding.jsx'
 import Dashboard from './pages/Dashboard.jsx'
 import HeatRisk from './pages/HeatRisk.jsx'
@@ -41,6 +42,7 @@ export default function App() {
   }
 
   return (
+    <DepartureRemindersProvider>
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
         <Route element={<Layout />}>
@@ -55,5 +57,6 @@ export default function App() {
         </Route>
       </Routes>
     </AnimatePresence>
+    </DepartureRemindersProvider>
   )
 }

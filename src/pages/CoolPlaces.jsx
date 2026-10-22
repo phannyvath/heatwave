@@ -1,10 +1,12 @@
 import { useMemo, useRef, useState } from 'react'
-import { Check, Droplets, ExternalLink, List, LocateFixed, Map as MapIcon, Snowflake, Train, X } from 'lucide-react'
+import { Check, Droplets, Navigation, List, LocateFixed, Map as MapIcon, Snowflake, Train, X } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import Card from '../components/Card.jsx'
 import Badge from '../components/Badge.jsx'
 import Button from '../components/Button.jsx'
 import CoolingMap from '../components/map/CoolingMap.jsx'
+import { useDepartureReminders } from '../context/DepartureReminders.jsx'
+import { createDemoPlan } from '../data/demoDirections.js'
 import { coolingPlaceFilters, demoCoolingPlaces } from '../data/demoCoolingPlaces.js'
 import { useSavedCoolingPlaces } from '../hooks/useSavedCoolingPlaces.js'
 import { useLocation as useStudentLocation } from '../hooks/useLocation.js'
@@ -54,7 +56,7 @@ function PlaceCard({ place, selected, saved, distanceText, onSelect, onSave, onD
           {saved ? t('actions.saved') : t('actions.save')}
         </Button>
         <Button variant="primary" onClick={onDirections}>
-          <ExternalLink className="size-4" />
+          <Navigation className="size-4" aria-hidden="true" />
           {t('actions.getDirections')}
         </Button>
       </div>
@@ -67,7 +69,7 @@ export default function CoolPlaces() {
   const [view, setView] = useState('map')
   const [filters, setFilters] = useState(['openNow'])
   const [selectedId, setSelectedId] = useState(demoCoolingPlaces[0].id)
-  const [directionsPlace, setDirectionsPlace] = useState(null)
+  const { viewPlan } = useDepartureReminders()
   const [toast, setToast] = useState('')
   const { savedPlaceIds, isSaved, toggleSavedPlace } = useSavedCoolingPlaces()
   const { location, requestCurrentLocation, status: locationStatus, error: locationError } = useStudentLocation()
@@ -112,16 +114,6 @@ export default function CoolPlaces() {
     window.setTimeout(() => {
       cardRefs.current[id]?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' })
     }, 80)
-  }
-
-  function openDirections() {
-    if (!directionsPlace) return
-    window.open(
-      `https://www.openstreetmap.org/directions?engine=fossgis_osrm_foot&route=;${directionsPlace.latitude},${directionsPlace.longitude}`,
-      '_blank',
-      'noopener,noreferrer',
-    )
-    setDirectionsPlace(null)
   }
 
   return (
@@ -222,7 +214,7 @@ export default function CoolPlaces() {
                   distanceText={place.distanceText}
                   onSelect={() => selectPlace(place.id)}
                   onSave={() => handleSave(place.id)}
-                  onDirections={() => setDirectionsPlace(place)}
+                  onDirections={() => viewPlan(createDemoPlan(place))}
                   compact
                 />
               </div>
@@ -238,7 +230,7 @@ export default function CoolPlaces() {
                   distanceText={place.distanceText}
                   onSelect={() => selectPlace(place.id)}
                   onSave={() => handleSave(place.id)}
-                  onDirections={() => setDirectionsPlace(place)}
+                  onDirections={() => viewPlan(createDemoPlan(place))}
                 />
               </div>
             ))}
@@ -255,7 +247,7 @@ export default function CoolPlaces() {
                 distanceText={place.distanceText}
                 onSelect={() => selectPlace(place.id)}
                 onSave={() => handleSave(place.id)}
-                onDirections={() => setDirectionsPlace(place)}
+                onDirections={() => viewPlan(createDemoPlan(place))}
               />
             </div>
           ))}
@@ -264,23 +256,7 @@ export default function CoolPlaces() {
 
       {toast && <p className="fixed bottom-28 left-1/2 z-50 -translate-x-1/2 rounded-full bg-navy px-4 py-2 text-sm font-black text-white shadow-soft">{toast}</p>}
 
-      {directionsPlace && (
-        <div className="fixed inset-0 z-50 grid place-items-center bg-cocoa/40 px-4">
-          <Card className="max-w-sm p-5">
-            <h2 className="text-xl font-black text-navy">{t('coolPlaces.directionsTitle')}</h2>
-            <p className="mt-2 text-sm leading-6 text-slate-700">{t('coolPlaces.directionsBody')}</p>
-            <div className="mt-5 grid gap-2 sm:grid-cols-2">
-              <Button variant="ghost" onClick={() => setDirectionsPlace(null)}>
-                {t('actions.cancel')}
-              </Button>
-              <Button onClick={openDirections}>
-                <ExternalLink className="size-4" />
-                {t('actions.previewDirections')}
-              </Button>
-            </div>
-          </Card>
-        </div>
-      )}
+
     </div>
   )
 }

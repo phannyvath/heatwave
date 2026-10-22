@@ -25,10 +25,12 @@ test('missing endpoint data cannot become an optimistic single-endpoint assessme
 })
 
 function apiForecast(temperature, timezone) {
+  const times = Array.from({ length: 48 }, (_, i) => Date.parse('2026-10-11T00:00:00Z') / 1000 + i * 3600)
+  const values = (value) => times.map(() => value)
   return {
     timezone,
-    current: { time: '2026-10-11T13:00', temperature_2m: temperature },
-    hourly: { time: ['2026-10-11T13:00'], temperature_2m: [temperature], apparent_temperature: [temperature], relative_humidity_2m: [50], uv_index: [2], weather_code: [0] },
+    current: { time: times[0], temperature_2m: temperature },
+    hourly: { time: times, temperature_2m: values(temperature), apparent_temperature: values(temperature), relative_humidity_2m: values(50), uv_index: values(2), weather_code: values(0) },
     daily: { time: [] },
   }
 }
@@ -37,12 +39,18 @@ const destination = { ...start, placeId: 'fixture-destination', displayName: 'Fi
 
 test('weather requests use selected coordinates and align destination to origin timezone', async (context) => {
   const urls = []
-  context.mock.method(globalThis, 'fetch', async (url) => {
+  context.mock.method(globalThis, 'fetch', async (url, options) => {
+    if (url === '/api/journey-routes') {
+      const { departure, mode, offsets } = JSON.parse(options.body)
+      assert.equal(mode, 'TRANSIT')
+      return Response.json({ results: offsets.map((offset) => ({ departure: departure + offset * 60000, arrival: departure + (offset + 30) * 60000, durationMinutes: 30, outdoorMinutes: 10, services: [], warnings: [] })) })
+    }
     urls.push(new URL(url))
     return Response.json(apiForecast(urls.length === 1 ? 25 : 39, 'Australia/Perth'))
   })
   const result = await checkJourneyWeather({ start, destination, time: '13:30', now })
   assert.equal(urls.length, 2)
+  assert.equal(urls[0].searchParams.get('timeformat'), 'unixtime')
   assert.equal(urls[0].searchParams.get('latitude'), '-31.9')
   assert.equal(urls[0].searchParams.get('longitude'), '115.8')
   assert.equal(urls[1].searchParams.get('latitude'), '-37.8')
@@ -61,5 +69,25 @@ test('unselected locations block weather fetch; endpoint failures never fall bac
   await assert.rejects(checkJourneyWeather({ start: null, destination, time: '13:30', now }))
   assert.equal(count, 0)
   await assert.rejects(checkJourneyWeather({ start, destination, time: '13:30', now }))
-  assert.equal(count, 2)
+  assert.equal(count, 3)
+})
+
+for (const [status, body, message] of [[503, { error: 'configuration' }, 'routesConfiguration'], [200, { results: [{ error: 'noRoute' }] }, 'noRoute'], [200, { results: [{ error: 'credentials' }] }, 'routesUnavailable']]) {
+  test(`routing failure ${message} never yields a forecast-only recommendation`, async (context) => {
+    context.mock.method(globalThis, 'fetch', async (url) => url === '/api/journey-routes' ? Response.json(body, { status }) : Response.json(apiForecast(25, 'Australia/Melbourne')))
+    await assert.rejects(checkJourneyWeather({ start, destination, time: '13:30', now }), new RegExp(message))
+  })
+}
+
+test('late departures exclude next-day and after-9pm alternatives', async (context) => {
+  context.mock.method(globalThis, 'fetch', async (url, options) => {
+    if (url !== '/api/journey-routes') return Response.json(apiForecast(25, 'Australia/Melbourne'))
+    const { departure, offsets, mode } = JSON.parse(options.body)
+    assert.deepEqual(offsets, [0])
+    assert.equal(mode, 'WALK')
+    return Response.json({ results: [{ departure, arrival: departure + 1800000, durationMinutes: 30, outdoorMinutes: 30, services: [], warnings: [] }] })
+  })
+  const result = await checkJourneyWeather({ start, destination, time: '20:30', method: 'WALK', now })
+  assert.equal(result.journey.recommendedTime, '20:30')
+  assert.equal(result.journey.requestedCount, 1)
 })

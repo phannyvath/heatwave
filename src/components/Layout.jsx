@@ -1,4 +1,4 @@
-import { NavLink, Outlet, useNavigate } from 'react-router-dom'
+import { NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom'
 import {
   AlertCircle,
   BookOpen,
@@ -16,6 +16,7 @@ import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import Button from './Button.jsx'
 import LanguageMenu from './LanguageMenu.jsx'
+import { NotificationBell } from '../context/DepartureReminders.jsx'
 import { useLocalStorage } from '../hooks/useLocalStorage.js'
 import logo from '../assets/images/logo.png'
 
@@ -60,6 +61,7 @@ export default function Layout() {
     largeText: false,
   })
   const navigate = useNavigate()
+  const { pathname } = useLocation()
 
   return (
     <div className={`min-h-screen bg-cream text-cocoa ${prefs.largeText ? 'text-[18px]' : ''}`}>
@@ -113,7 +115,8 @@ export default function Layout() {
               {t('app.demoGuidance')}
             </p>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex shrink-0 items-center gap-2">
+            <NotificationBell />
             <LanguageMenu />
             <button
               className="grid size-11 place-items-center rounded-full bg-danger text-white shadow-sm"
@@ -168,7 +171,7 @@ export default function Layout() {
       </AnimatePresence>
 
       <main id="main-content" className="pb-24 lg:ml-72 lg:pb-8">
-        <div className="mx-auto max-w-7xl px-4 py-5 sm:px-6 lg:px-8">
+        <div className={`mx-auto w-full px-4 py-5 sm:px-6 lg:px-8 ${pathname === '/travel-planner' ? '' : 'max-w-7xl'}`}>
           <Outlet context={{ prefs, setPrefs }} />
         </div>
       </main>
